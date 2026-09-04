@@ -35,7 +35,7 @@ export function LandingPage() {
         <section id="how-we-work">
           <div className="container">
             <p className="label">01 <span className="separator">/</span> How we work</p>
-            <h2>Research first. Execution engineered.</h2>
+            <h2>Data-driven research / High-performance execution</h2>
 
             <ul className="styleless">
               <li>
@@ -45,9 +45,8 @@ export function LandingPage() {
               </li>
               <li>
                 <RustIcon width={28} height={28}/>
-                <h3>02 <span className="separator">/</span> Low-latency engine</h3>
-                <p>Validated logic is translated into a purpose-built Rust execution engine designed for deterministic decisions and low-latency
-                  order handling.</p>
+                <h3>02 <span className="separator">/</span> High-performance engine</h3>
+                <p>Validated logic is translated into a proprietary Rust execution engine designed for low-latency trading.</p>
               </li>
             </ul>
           </div>
@@ -56,7 +55,7 @@ export function LandingPage() {
         <section id="performance">
           <div className="container">
             <p className="label">02 <span className="separator">/</span> Performance</p>
-            <h2>Operating results across recent periods.</h2>
+            <h2>Operating results across recent periods</h2>
             <p className="muted">
               Results are shown from the current account record as of 31 August 2026. Historical performance is not indicative of future results.
             </p>
