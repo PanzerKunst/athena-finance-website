@@ -1,0 +1,341 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.page.landing > main {
+  @include responsive-images(lg);
+  margin-bottom: 0;
+
+  $side-padding-text-block: 8vw;
+
+  .text-block-and-img {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    @include vw(lg) {
+      gap: 5em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      > :first-child {
+        padding-left: $side-padding-text-block;
+
+        @include vw(lg) {
+          padding-top: 12%;
+        }
+      }
+
+      > :last-child {
+        align-self: flex-end;
+      }
+    }
+
+    @include vw(xl) {
+      gap: 10em;
+    }
+    @include vw(xxl) {
+      gap: 12em;
+    }
+  }
+
+  > section {
+    padding-block: 5em;
+
+    padding-inline: $min-content-inline-margin;
+    @include vw(lg) {
+      padding-inline: 0;
+    }
+
+    &:nth-of-type(even) {
+      background-color: $color-offset-bg;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5em;
+
+      margin-bottom: 3.5em;
+
+      > * {
+        text-align: center;
+      }
+
+      > span {
+        color: $color-text-brand;
+        font-weight: 600;
+      }
+
+      > p {
+        margin-bottom: 0;
+        max-width: 768px;
+      }
+    }
+
+    &#hero,
+    &#company-overview {
+      padding-bottom: 0;
+    }
+
+    &#hero {
+      padding-block: 0;
+
+      > div {
+        &:not(.banner) {
+          display: flex;
+          flex-direction: column;
+
+          text-align: center;
+          @include vw(lg) {
+            text-align: left;
+          }
+
+          h1 {
+            font-size: $font-size-xl;
+            margin-bottom: 1em;
+          }
+
+          p {
+            margin-bottom: 1em;
+          }
+
+          .subscribe-to-mailing-list {
+            margin-block: 3em 1.5em;
+          }
+        }
+      }
+    }
+
+    &.product-module {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+
+      > div:first-child {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        > p {
+          margin-bottom: 0;
+        }
+
+        > ul {
+          padding-left: 0.5em;
+
+          > li {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            // stylelint-disable-next-line max-nesting-depth
+            &:not(:last-child) {
+              margin-bottom: 1em;
+            }
+
+            // stylelint-disable-next-line max-nesting-depth
+            > svg {
+              color: $color-icon-brand;
+              @include img-size(24px);
+            }
+          }
+        }
+      }
+
+      > div.video-preview {
+        position: relative;
+        cursor: pointer;
+
+        > .button.icon-only {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          > svg {
+            @include img-size(70%);
+            @include svg-shadow;
+          }
+        }
+      }
+
+      @include vw(lg) {
+        gap: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+
+        &#policies {
+          > .video-preview,
+          > .video-player {
+            order: -1;
+          }
+        }
+
+        > div:first-child {
+          padding-inline: $side-padding-text-block;
+        }
+      }
+
+      &#risks {
+        > div.video-player {
+          margin-block: 5.5%;
+
+          @include vw(lg) {
+            margin-block: 10.8%;
+          }
+        }
+      }
+
+      &#policies {
+        > div.video-player {
+          margin-block: 3.7%;
+
+          @include vw(lg) {
+            margin-block: 12.5%;
+          }
+        }
+      }
+    }
+
+    $pricing-card-border-radius: $border-radius-xl;
+
+    &#pricing > ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5em;
+
+      > li {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        border: 1px solid $color-border;
+        border-radius: $pricing-card-border-radius;
+        @include drop-shadow(sm);
+        background-color: $color-app-bg;
+      }
+    }
+
+    .pricing-data {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > h3 {
+        margin-top: 35px;
+      }
+
+      > div {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5em;
+
+        margin-top: 20px;
+
+        > span {
+          &:first-child {
+            color: $color-heading;
+            font-size: $font-size-xl;
+            font-weight: 600;
+          }
+
+          &:not(:first-child) {
+            font-size: $font-size-sm;
+          }
+        }
+      }
+
+      > ul {
+        width: 300px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        margin: 2em 1.5em;
+
+        > li {
+          flex-grow: 1;
+
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+
+          > .icon-with-bg-color {
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+
+    .pricing-cta {
+      display: flex;
+      justify-content: center;
+
+      padding-block: 1.5em;
+
+      background-color: $color-offset-bg;
+      border-top: 1px solid $color-border;
+
+      // To avoid the bg color to overflow over the parent's border-radius
+      border-bottom-left-radius: $pricing-card-border-radius;
+      border-bottom-right-radius: $pricing-card-border-radius;
+    }
+
+    &#get-synergy > .container {
+      container-type: inline-size;
+
+      @include vw(sm) {
+        padding-inline: 0;
+      }
+
+      > ul.styleless {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3.5em 1.5em;
+
+        > li {
+          max-width: 300px;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+
+          > * {
+            text-align: center;
+          }
+
+          > h3 {
+            font-size: $font-size-sm;
+          }
+
+          > p {
+            font-size: $font-size-xxs;
+          }
+        }
+      }
+    }
+
+    &#company-overview li {
+      display: flex;
+      gap: 1em;
+
+      &:not(:last-child) {
+        margin-bottom: 2em;
+      }
+
+      > .icon-with-square-border {
+        flex-shrink: 0;
+      }
+
+      h3 {
+        font-size: #{$font-size-text-xl}px;
+        margin-block: 0.7em 0.5em;
+      }
+    }
+  }
+}

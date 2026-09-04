@@ -1,0 +1,101 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.app-footer {
+  background-color: $color-footer-bg;
+
+  $block-padding: 5em;
+
+  > .container {
+    padding-block: $block-padding;
+
+    > div {
+      &:first-child {
+        margin-bottom: $block-padding;
+
+        > div {
+          > h3 {
+            display: none;
+          }
+
+          @include vw(lg) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            // stylelint-disable-next-line max-nesting-depth
+            > h3 {
+              display: block;
+            }
+
+            // stylelint-disable-next-line max-nesting-depth
+            .MuiFormLabel-root {
+              display: none;
+            }
+          }
+        }
+
+        > p {
+          display: none;
+
+          @include vw(lg) {
+            display: block;
+            margin-top: 1em;
+          }
+        }
+      }
+
+      &:last-child {
+        $elements-gap: 3em;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: $elements-gap;
+
+        font-size: $font-size-xxs;
+        text-transform: uppercase;
+
+        @include vw(md) {
+          flex-direction: row;
+          align-items: flex-end;
+        }
+
+        > nav {
+          margin-top: 0.5em; // To visially vertically align with the logo
+
+          > ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            align-items: center;
+
+            // stylelint-disable-next-line max-nesting-depth
+            @include vw(md) {
+              flex-direction: row;
+            }
+          }
+        }
+
+        > div {
+          @include vw(md) {
+            order: -1;
+          }
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          > img {
+            flex-basis: 4em;
+            margin: 0 auto 1em;
+          }
+
+          > span {
+            text-align: center;
+            line-height: 1.5em;
+          }
+        }
+      }
+    }
+  }
+}

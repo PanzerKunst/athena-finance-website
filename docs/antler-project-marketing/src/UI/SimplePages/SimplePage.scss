@@ -1,0 +1,49 @@
+@use "sass:math";
+@import "/src/UI/_CommonStyles/mixins";
+
+.page.simple > main {
+  @include responsive-images(lg);
+
+  margin-bottom: 0;
+  @include vw(lg) {
+    margin-bottom: $main-block-margin;
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: $main-block-margin;
+
+  h1,
+  h2 {
+    margin-bottom: 1em;
+  }
+
+  ul {
+    margin-bottom: 1.5em;
+
+    > li:not(:first-of-type) {
+      margin-top: 0.2em;
+    }
+  }
+
+  p + ul {
+    margin-top: -1.3em; // Compensates for the bottom-margin of the preceding `p`
+  }
+
+  > .container.two-col {
+    @include vw(lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 5em;
+
+      > div {
+        padding-bottom: 1em;
+      }
+    }
+  }
+
+  > img.mobile {
+    margin-top: math.div(-$main-block-margin, 2);
+  }
+}

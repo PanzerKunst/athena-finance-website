@@ -1,0 +1,36 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.icon-with-square-border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $color-app-bg;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+
+  width: 48px;
+  height: 48px;
+
+  > svg {
+    color: $color-icon-dark;
+    @include img-size(24px);
+  }
+}
+
+.icon-with-bg-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  background-color: $color-green-100;
+
+  width: 24px;
+  height: 24px;
+
+  > svg {
+    color: $color-icon-success;
+    @include img-size(16px);
+  }
+}

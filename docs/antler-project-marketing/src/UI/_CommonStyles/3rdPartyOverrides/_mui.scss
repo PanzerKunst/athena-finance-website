@@ -1,0 +1,109 @@
+@import "../mixins";
+
+:root {
+  --joy-fontFamily-body: Inter; // stylelint-disable-line
+  --joy-palette-danger-500: #{$color-text-danger};
+  --joy-palette-primary-500: #{$color-brand-600};
+  --joy-palette-success-solidBg: #{$color-green-500}; // stylelint-disable-line
+  --joy-palette-text-primary: #{$color-text};
+  --variant-softColor: #{$color-brand-700}; // stylelint-disable-line
+  --variant-softActiveColor: #{$color-brand-500}; // stylelint-disable-line
+  --variant-softBg: #{$color-radio-bg}; // stylelint-disable-line
+  --variant-softHoverBg: #{$color-radio-bg-hover};  // stylelint-disable-line
+  --variant-softActiveBg: #{$color-radio-bg-hover};  // stylelint-disable-line
+
+  /* --Radio-size: 1.2em;  // stylelint-disable-line */
+}
+
+.MuiModal-root {
+  > .MuiModal-backdrop {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none; // stylelint-disable-line property-no-vendor-prefix
+  }
+
+  &.invisible-backdrop > .MuiModal-backdrop {
+    background-color: transparent;
+  }
+}
+
+.MuiFormControl-root {
+  .MuiFormLabel-root {
+    font-size: $font-size-sm;
+    margin-inline: calc($input-padding-inline - 2px);
+  }
+
+  .MuiInput-root {
+    font-size: $font-size-sm;
+    border-radius: $border-radius-md;
+    padding: 0.3em $input-padding-inline;
+    background-color: $color-input-bg;
+    color: $color-input-text;
+
+    > .MuiInput-startDecorator {
+      color: $color-input-text;
+    }
+
+    &.offset {
+      background-color: $color-input-bg-offset;
+      color: $color-input-text-offset;
+
+      > .MuiInput-startDecorator {
+        color: $color-input-text-offset;
+      }
+    }
+  }
+
+  .MuiFormHelperText-root {
+    font-size: $font-size-xs;
+  }
+}
+
+.MuiCheckbox-root {
+  align-items: center;
+
+  > .MuiCheckbox-checkbox {
+    --Checkbox-size: 28px;  // stylelint-disable-line
+
+    > svg {
+      font-size: 28px;
+    }
+  }
+}
+
+.MuiRadioGroup-root.MuiRadioGroup-variantPlain {
+  margin: 0;
+
+  > .MuiRadio-root {
+    --Radio-size: 28px;  // stylelint-disable-line
+  }
+}
+
+.MuiLinearProgress-root.MuiLinearProgress-colorPrimary.MuiLinearProgress-variantPlain {
+  color: $color-loader;
+
+  $block-size: 0.15em;
+
+  min-block-size: $block-size;
+
+  &::before {
+    block-size: $block-size;
+  }
+}
+
+.MuiModalDialog-root.MuiModalDialog-layoutCenter {
+  > .button.close {
+    align-self: flex-end;
+    margin: -0.75em -0.75em 0 0;
+
+    > svg {
+      color: $color-icon-dark;
+    }
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+}

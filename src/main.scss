@@ -1,0 +1,6 @@
+// App globals. 3rd-party stylesheets are imported from `main.tsx`, ahead of this file.
+@use "UI/_CommonStyles/fonts";
+@use "UI/_CommonStyles/3rdPartyOverrides/mantine";
+@use "UI/_CommonStyles/links";
+@use "UI/_CommonStyles/lists";
+@use "UI/_CommonStyles/typography";

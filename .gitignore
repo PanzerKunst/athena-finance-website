@@ -1,0 +1,12 @@
+/logs
+/.idea/athena-finance-website.iml
+
+/.claude/settings.local.json
+/CLAUDE.md
+
+/.agents/settings.json
+/AGENTS.md
+
+/node_modules
+/dist
+/.vite

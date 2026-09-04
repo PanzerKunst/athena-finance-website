@@ -1,0 +1,65 @@
+@import "./functions";
+
+$vw-sm: 320px;
+$vw-md: 640px;
+$vw-lg: 960px;
+$vw-xl: 1280px;
+$vw-xxl: 1600px;
+
+$min-content-inline-margin: 16px;
+$main-block-margin: 8em;
+$min-button-size: 40px;
+
+$list-padding-left: 28px;
+
+$border-radius-md: 6px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+
+$animation-duration-xs: 0.1;
+$animation-duration-sm: 0.3;
+$animation-duration-md: 0.7;
+$animation-duration-lg: 1.2;
+
+$z-index-joy-input-focused-border: 1;
+$z-index-banner: $z-index-joy-input-focused-border + 1;
+$z-index-header: $z-index-banner + 1;
+$z-index-tooltip: $z-index-banner + 1;
+$z-index-select-list: $z-index-tooltip + 1;
+$z-index-menu-backdrop: $z-index-select-list + 1;
+$z-index-menu: $z-index-menu-backdrop + 1;
+
+$header-height: 60px;
+
+$input-padding-inline: 0.75em;
+
+$default-field-gap: 3vmin;
+
+/* Source Sans Pro
+$font-size-xxl: font-size(48);
+$font-size-xl: font-size(36);
+$font-size-lg: font-size(24);
+$font-size-md: font-size(20);
+$font-size-sm: font-size(16);
+$font-size-xs: font-size(14);
+$font-size-xxs: font-size(12); */
+
+// Inter
+
+$font-size-display-xl: 60;
+$font-size-display-lg: 48;
+$font-size-display-md: 36;
+$font-size-display-sm: 30;
+$font-size-display-xs: 24;
+
+$font-size-text-xl: 20;
+$font-size-text-lg: 18;
+$font-size-text-md: 16;
+
+$font-size-xxl: variable-font($font-size-display-xl, $font-size-display-md);
+$font-size-xl: variable-font($font-size-display-lg, $font-size-display-md);
+$font-size-lg: variable-font($font-size-display-md, $font-size-display-sm);
+$font-size-md: variable-font($font-size-display-sm, $font-size-display-xs);
+$font-size-sm: variable-font($font-size-text-xl, $font-size-text-lg);
+$font-size-xs: variable-font($font-size-text-lg, $font-size-text-md);
+$font-size-xxs: variable-font($font-size-text-md, $font-size-text-md);

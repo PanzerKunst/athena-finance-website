@@ -1,0 +1,49 @@
+@use "functions" as *;
+
+$vw-md: 640px;
+$vw-lg: 960px;
+$vw-xl: 1280px;
+$vw-xxl: 1600px;
+
+$min-content-inline-margin: 16px;
+$section-block-padding: 4em;
+$section-block-padding-lg: 7em;
+
+$list-padding-left: 28px;
+
+$border-radius-lg: 12px;
+
+$animation-duration-sm: 0.3;
+
+// Mantine's overlays start at 200, so the header has to stay below the Drawer
+$z-index-header: 100;
+
+$header-height: 60px;
+$header-border-width: 1px;
+
+$font-family-base: "Inter", sans-serif;
+
+$letter-spacing-heading: -0.03em;
+$letter-spacing-label: 0.12em;
+
+// Inter
+$font-size-display-xxl: 56;
+$font-size-display-xl: 36;
+$font-size-display-lg: 30;
+$font-size-display-md: 20;
+
+$font-size-text-xl: 18;
+$font-size-text-lg: 16;
+$font-size-text-md: 15;
+$font-size-text-sm: 14;
+$font-size-text-xs: 12;
+
+$font-size-xxl: variable-font($font-size-display-xxl, 32); // h1
+$font-size-xl: variable-font($font-size-display-xl, 28); // h2
+$font-size-lg: variable-font($font-size-display-lg, 26); // Stat figures
+$font-size-md: variable-font($font-size-display-md, 18); // h3
+$font-size-sm: variable-font($font-size-text-xl, $font-size-text-lg); // Lead paragraphs
+$font-size-xs: variable-font($font-size-text-lg, $font-size-text-md); // Body copy
+$font-size-xxs: variable-font($font-size-text-sm, $font-size-text-sm); // Captions
+
+$font-size-label: #{$font-size-text-xs}px; // Uppercase letter-spaced labels

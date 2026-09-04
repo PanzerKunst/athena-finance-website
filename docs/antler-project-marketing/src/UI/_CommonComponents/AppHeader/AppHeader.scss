@@ -1,0 +1,94 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.app-header-wrapper {
+  > header {
+    position: fixed;
+    z-index: $z-index-header;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    height: $header-height;
+    background-color: $color-header-bg;
+    padding-inline: 8vw;
+
+    @include drop-shadow(md);
+    transition: top #{$animation-duration-xs}s linear;
+
+    > a {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      > img {
+        @include img-size(24px);
+      }
+
+      > span {
+        font-size: #{$font-size-display-xs}px;
+        font-weight: 600;
+        color: $color-heading;
+
+        display: none;
+        @include vw(md) {
+          display: inline;
+        }
+      }
+    }
+
+    > h2 {
+      font-weight: 400;
+      font-size: $font-size-md;
+    }
+
+    > nav {
+      > button {
+        $size: $font-size-xxs;
+
+        font-size: $size;
+        line-height: $size; // Vertical centering
+        font-weight: 600;
+
+        &:not(:last-child) {
+          margin-right: 1em;
+        }
+      }
+    }
+
+    > .button.icon-only {
+      margin-right: -6px;
+
+      > svg {
+        @include img-size(24px);
+      }
+    }
+
+    &.mobile {
+      padding-inline: $min-content-inline-margin;
+    }
+
+    &.menu-open {
+      padding-right: calc($min-content-inline-margin + var(--scrollbar-width));
+    }
+  }
+
+  > ul.styleless.menu {
+    position: fixed;
+    font-size: $font-size-sm;
+
+    top: $header-height - 5px;
+    left: 0;
+    width: 100%;
+
+    padding-bottom: 8px;
+    border-radius: 0;
+    @include drop-shadow;
+
+    > li {
+      justify-content: center;
+    }
+  }
+}

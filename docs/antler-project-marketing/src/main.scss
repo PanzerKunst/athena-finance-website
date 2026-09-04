@@ -1,0 +1,16 @@
+// 3rd-party, MUI excluded
+@import "/node_modules/normalize.css/normalize.css";
+
+// 3rd party overrides
+@import "UI/_CommonStyles/3rdPartyOverrides/mui";
+
+// App globals
+@import "UI/_CommonStyles/buttons";
+@import "UI/_CommonStyles/embeds";
+@import "UI/_CommonStyles/fonts";
+@import "UI/_CommonStyles/forms";
+@import "UI/_CommonStyles/iconBackgrounds";
+@import "UI/_CommonStyles/links";
+@import "UI/_CommonStyles/lists";
+@import "UI/_CommonStyles/typography";
+@import "UI/_CommonStyles/utilityClasses";

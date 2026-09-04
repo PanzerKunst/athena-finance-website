@@ -1,0 +1,16 @@
+@use "sass:math";
+
+/* Source Sans Pro
+$font-multiplier-from-figma: 1.0833; // 1.0833333333333 */
+
+// Inter
+$font-multiplier-from-figma: 1;
+$clamp-middle-value-fraction: 12; // (min + max) / $clamp-middle-value-fraction
+
+@function variable-font($max-px-figma, $min-px-figma) {
+  $middle-value-vw: math.div($min-px-figma + $min-px-figma, $clamp-middle-value-fraction);
+  $min-px-real: $min-px-figma * $font-multiplier-from-figma;
+  $max-px-real: $max-px-figma * $font-multiplier-from-figma;
+
+  @return clamp(#{$min-px-real}px, #{$middle-value-vw}vw, #{$max-px-real}px);
+}

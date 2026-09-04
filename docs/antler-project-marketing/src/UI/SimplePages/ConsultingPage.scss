@@ -1,0 +1,24 @@
+@use "sass:math";
+@import "/src/UI/_CommonStyles/mixins";
+
+.page.simple.consulting > main {
+  > .container {
+    &:not(.two-col) > div {
+      max-width: math.div($vw-md + $vw-lg, 2);
+
+      > p {
+        @include vw(lg) {
+          font-size: variable-font($font-size-display-xs, $font-size-text-xl);
+        }
+      }
+    }
+
+    &.two-col:last-of-type > img {
+      order: -1;
+    }
+  }
+
+  img {
+    margin-inline: auto; // Only needed because Richard's photos are too low resolution
+  }
+}

@@ -1,0 +1,16 @@
+@import "colors";
+@import "numbers";
+
+:export {
+  vwMd: $vw-md;
+  vwLg: $vw-lg;
+  vwXl: $vw-xl;
+  vwXxl: $vw-xxl;
+
+  animationDurationXs: $animation-duration-xs;
+  animationDurationSm: $animation-duration-sm;
+  animationDurationMd: $animation-duration-md;
+  animationDurationLg: $animation-duration-lg;
+
+  headerHeight: $header-height;
+}

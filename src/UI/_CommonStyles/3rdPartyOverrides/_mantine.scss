@@ -1,0 +1,24 @@
+@use "UI/_CommonStyles" as *;
+
+// `_colors.scss` and `_numbers.scss` stay the single source of truth: this file is the only
+// place where those SCSS variables are handed over to Mantine, which is why `<MantineProvider>`
+// is given no `theme` of its own.
+:root {
+  --mantine-font-family: #{$font-family-base};
+  --mantine-color-body: #{$color-app-bg};
+  --mantine-color-text: #{$color-text};
+  --mantine-color-black: #{$color-heading};
+  --mantine-color-white: #{$color-app-bg};
+  --mantine-color-default-border: #{$color-border};
+  --mantine-color-anchor: #{$color-link};
+  --mantine-primary-color-filled: #{$color-focus-ring};
+}
+
+.mantine-Burger-burger {
+  --burger-color: #{$color-heading};
+}
+
+.mantine-Drawer-title {
+  @include label-text;
+  color: $color-heading;
+}

@@ -1,0 +1,66 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.subscribe-to-mailing-list {
+  > .subscribed {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    justify-content: center;
+    @include vw(lg) {
+      justify-content: flex-start;
+    }
+
+    > span {
+      &:first-child {
+        color: $color-heading;
+        font-size: $font-size-sm;
+        font-weight: 600;
+      }
+
+      &:last-child {
+        font-size: $font-size-md;
+        margin-top: -4px;
+      }
+    }
+  }
+
+  > .MuiFormControl-root {
+    width: 300px;
+
+    margin-inline: auto;
+    @include vw(lg) {
+      margin-inline: 0;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+
+    @include vw(lg) {
+      width: 400px;
+
+      > div {
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 0;
+
+        .MuiInput-root {
+          flex-grow: 1;
+
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        button.button {
+          flex-shrink: 0;
+
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+  }
+}

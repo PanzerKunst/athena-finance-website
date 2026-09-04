@@ -1,0 +1,12 @@
+@import "./colors";
+@import "./numbers";
+@import "./mixins";
+
+a:not(.button) {
+  color: $color-link;
+  text-decoration: none;
+
+  &.underlined {
+    @include underlined;
+  }
+}

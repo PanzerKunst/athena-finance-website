@@ -1,0 +1,47 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.banner {
+  position: absolute;
+  top: $header-height;
+  z-index: $z-index-banner;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  @include diagonal-brand-gradient;
+  padding: 0.5em $min-content-inline-margin;
+
+  color: $color-banner-text;
+  font-size: $font-size-xs;
+
+  $close-button-negative-margin: 14px;
+
+  @include vw(lg) {
+    padding-inline: 8vw;
+  }
+
+  > .placeholder {
+    display: none;
+
+    @include vw(lg) {
+      display: block;
+      width: $min-button-size - $close-button-negative-margin;
+    }
+  }
+
+  > .children {
+    text-align: center;
+  }
+
+  > .button.icon-only {
+    opacity: 0.7;
+    margin-right: -6px;
+
+    @include vw(lg) {
+      margin-right: -$close-button-negative-margin;
+    }
+  }
+}

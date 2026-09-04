@@ -1,0 +1,11 @@
+@use "UI/_CommonStyles" as *;
+
+a {
+  color: $color-link;
+  text-decoration: none;
+
+  &.underlined-on-hover:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+}

@@ -1,0 +1,10 @@
+@import "/src/UI/_CommonStyles/colors";
+
+.circular-loader {
+  display: flex;
+  justify-content: center;
+
+  > .MuiCircularProgress-root .MuiCircularProgress-progress {
+    stroke: $color-loader;
+  }
+}

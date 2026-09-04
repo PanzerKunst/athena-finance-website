@@ -1,0 +1,25 @@
+@use "UI/_CommonStyles" as *;
+
+.container {
+  margin-inline: auto;
+  padding-inline: $min-content-inline-margin;
+
+  @include vw(md) {
+    padding-inline: 0;
+    width: 75%;
+  }
+
+  @include vw(xl) {
+    width: 1216px;
+  }
+}
+
+.page {
+  // The header is fixed, so the content has to clear it
+  padding-top: $header-height + $header-border-width;
+}
+
+// So anchored headings clear the fixed header
+section {
+  scroll-margin-top: $header-height + $header-border-width;
+}

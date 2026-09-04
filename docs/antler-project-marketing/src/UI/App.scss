@@ -1,0 +1,40 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+html {
+  // Always display the vertical scrollbar
+  overflow-y: scroll;
+}
+
+body {
+  background-color: $color-app-bg;
+  color: $color-text;
+  font-family: Inter, sans-serif;
+
+  box-sizing: border-box; // Border-box everything by default
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+// To avoid these elements to bleed through the parent
+img,
+iframe,
+embed,
+video {
+  display: block; // To avoid extra space below the element
+  max-width: 100%;
+}
+
+// To make sure the footer is always at the bottom of the viewport
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  > .page {
+    flex-grow: 1;
+  }
+}

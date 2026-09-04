@@ -1,0 +1,159 @@
+@import "./colors";
+@import "./numbers";
+@import "./mixins";
+
+@mixin button-reset {
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+}
+
+button.button:not([role="tab"]),
+a.button:not([role="tab"]) {
+  @include button-reset;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: $min-button-size;
+  min-width: $min-button-size;
+
+  color: $color-btn-text;
+}
+
+button.button:not(.icon-only),
+a.button:not(.icon-only) {
+  @include to-right-brand-gradient;
+  background-size: 100% 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  transition: all #{$animation-duration-sm}s ease; // background-size color translateY
+
+  font-size: #{$font-size-text-md}px;
+  font-weight: 400;
+  color: $color-btn-text;
+
+  padding-inline: 0.7em;
+  border-radius: 3px;
+
+  &:not([disabled], :active, .transparent):hover {
+    transform: translateY(-1px);
+  }
+
+  &.rounded {
+    border-radius: 1.2em; // TODO
+  }
+
+  &.danger {
+    background-image: none;
+    background-color: $color-btn-bg-danger;
+  }
+
+  /* &.transparent-bordered {
+    color: $color-btn-text-pre-filled;
+    background-image: none;
+    border: 0.1em solid $color-btn-border;
+
+    &:hover {
+      color: $color-btn-text;
+      @include to-right-red-gradient;
+      background-size: 100% 100%;
+      border-color: transparent;
+    }
+  } */
+
+  &.lg {
+    font-size: #{$font-size-text-lg}px;
+
+    > span {
+      padding-block: 0.675em 0.625em;
+    }
+  }
+
+
+  // Left/right icons
+
+  > svg,
+  > img {
+    &:first-child {
+      margin-right: 0.5em;
+    }
+
+    &:last-child {
+      margin-left: 0.5em;
+    }
+  }
+
+  &:not(.transparent) > svg {
+    color: $color-icon-light;
+  }
+
+
+  // Loader
+
+  &.loading { // Because `&:has(> .circular-loader) {` isn't supported on Firefox
+    position: relative;
+
+    > .circular-loader {
+      position: absolute;
+
+      > .MuiCircularProgress-root .MuiCircularProgress-progress {
+        stroke: $color-btn-text;
+      }
+    }
+
+    > span {
+      visibility: hidden;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.3;
+  }
+}
+
+a.button {
+  text-decoration: none;
+}
+
+.button.icon-only {
+  border-radius: 50%;
+
+  > svg {
+    color: $color-icon-dark;
+  }
+
+  &.offset-bg-on-hover:hover {
+    background-color: $color-btn-bg-icon-only-dark-hover;
+  }
+
+  &.light {
+    > svg {
+      color: $color-icon-light;
+    }
+
+    &.offset-bg-on-hover:hover {
+      background-color: $color-btn-bg-icon-only-light-hover;
+    }
+  }
+
+  &:not(:hover).bordered {
+    border: 2px solid $color-icon-dark;
+
+    &.light {
+      border-color: $color-icon-light;
+    }
+  }
+}
+
+button.underlined {
+  @include button-reset;
+  font-size: $font-size-xs;
+  @include underlined;
+}

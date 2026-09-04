@@ -1,0 +1,10 @@
+@use "sass:math";
+
+// Inter
+$clamp-middle-value-fraction: 12; // (min + max) / $clamp-middle-value-fraction
+
+@function variable-font($max-px, $min-px) {
+  $middle-value-vw: math.div($min-px + $max-px, $clamp-middle-value-fraction);
+
+  @return clamp(#{$min-px}px, #{$middle-value-vw}vw, #{$max-px}px);
+}

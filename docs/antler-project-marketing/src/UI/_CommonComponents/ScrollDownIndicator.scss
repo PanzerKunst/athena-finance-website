@@ -1,0 +1,18 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.scroll-down-indicator {
+  > .button.icon-only {
+    color: $color-scroll-indicator;
+
+    &:hover {
+      color: $color-scroll-indicator-hover;
+      transform: translateY(-1px);
+    }
+
+    > svg {
+      @include img-size(50px);
+      color: inherit;
+      transition: color #{$animation-duration-md}s ease;
+    }
+  }
+}

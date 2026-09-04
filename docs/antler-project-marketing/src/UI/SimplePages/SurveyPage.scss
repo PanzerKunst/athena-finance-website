@@ -1,0 +1,14 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.page.simple.survey {
+  iframe {
+    height: 1100px;
+
+    @include vw(md) {
+      height: 950px;
+    }
+    @include vw(lg) {
+      height: 880px;
+    }
+  }
+}

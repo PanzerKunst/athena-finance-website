@@ -1,0 +1,41 @@
+@use "UI/_CommonStyles" as *;
+
+.app-footer {
+  > .container {
+    border-top: 1px solid $color-border;
+    padding-block: $section-block-padding;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    @include vw(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75em;
+
+      font-size: $font-size-xxs;
+
+      &:last-child {
+        @include vw(md) {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .brand {
+    @include label-text;
+    color: $color-heading;
+  }
+
+  .company {
+    color: $color-heading;
+    font-weight: 600;
+  }
+}

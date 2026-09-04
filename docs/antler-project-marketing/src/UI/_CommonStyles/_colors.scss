@@ -1,0 +1,79 @@
+@use "sass:color";
+
+// Base colors, only used in this file
+$color-black: rgb(0 0 0); // #000
+$color-white: rgb(255 255 255); // #fff
+$color-gray-50: rgb(249 250 251); // #F9FAFB
+$color-gray-100: rgb(242 244 247); // #F2F4F7
+$color-gray-200: rgb(234 236 240); // #EAECF0
+$color-gray-400: rgb(152 162 179); // #98A2B3
+$color-gray-500: rgb(102 112 133); // #667085
+$color-gray-600: rgb(71 84 103); // #475467
+$color-gray-700: rgb(52 64 84); // #344054
+$color-gray-900: rgb(16 24 40); // #101828
+$color-brand-50: rgb(249 245 255); // #F9F5FF
+$color-brand-100: rgb(244 235 255); // #F4EBFF
+$color-brand-200: rgb(233 215 254); // #E9D7FE
+$color-brand-500: rgb(158 119 237); // #9E77ED
+$color-brand-600: rgb(127 86 217); // #7F56D9
+$color-brand-700: rgb(105 65 198); // #6941C6
+$color-green-100: rgb(220 250 230); // #DCFAE6
+$color-green-500: rgb(23 178 106); // #17B26A
+$color-green-700: rgb(6 118 71); // #067647
+$color-red-600: rgb(217 45 32); // #D92D20
+$color-red-700: rgb(180 35 24); // #B42318
+
+// Functional colors, to use in the rest of the app
+$color-app-bg: $color-white;
+$color-app-bg-brand-gradient-start: $color-brand-700;
+$color-app-bg-brand-gradient-end: $color-brand-600;
+$color-banner-text: $color-white;
+$color-border: $color-gray-200;
+$color-border-danger: color.adjust($color-red-600, $alpha: -0.5);
+$color-brand-name-offset: $color-brand-500;
+$color-btn-bg-danger: $color-red-600;
+$color-btn-bg-icon-only-dark-hover: color.adjust($color-black, $alpha: -0.95);
+$color-btn-bg-icon-only-light-hover: color.adjust($color-white, $alpha: -0.5);
+$color-btn-bg-brand-gradient-start: $color-brand-600;
+$color-btn-bg-brand-gradient-end: $color-brand-600;
+$color-btn-border: $color-brand-600;
+$color-btn-text: $color-white;
+$color-btn-text-pre-filled: $color-brand-600;
+$color-drop-shadow-15pc: color.adjust($color-gray-900, $alpha: -0.85);
+$color-drop-shadow-8pc: color.adjust($color-gray-900, $alpha: -0.92);
+$color-drop-shadow-3pc: color.adjust($color-gray-900, $alpha: -0.97);
+$color-footer-bg: $color-gray-50;
+$color-header-bg: $color-app-bg;
+$color-heading: $color-gray-900;
+$color-icon-dark: $color-gray-700;
+$color-icon-light: $color-white;
+$color-icon-grey: $color-gray-600;
+$color-icon-brand: $color-brand-600;
+$color-icon-bg-1: $color-brand-100;
+$color-icon-bg-2: $color-brand-50;
+$color-icon-success: $color-green-500;
+$color-input-bg: $color-gray-100;
+$color-input-bg-offset: $color-gray-900;
+$color-input-text: $color-gray-900;
+$color-input-text-offset: $color-white;
+$color-input-placeholder: $color-gray-400;
+$color-link: $color-gray-600;
+$color-list-item-bg: $color-input-bg;
+$color-list-item-bg-hover: $color-gray-50;
+$color-loader: $color-brand-600;
+$color-menu-item-bg-hover: $color-gray-50;
+$color-offset-bg: $color-gray-50;
+$color-item-placeholder: $color-gray-50;
+$color-radio-bg: $color-input-bg;
+$color-radio-bg-hover: $color-gray-200;
+$color-scroll-indicator: $color-gray-200;
+$color-scroll-indicator-hover: $color-brand-200;
+$color-text: $color-gray-600;
+$color-text-brand: $color-brand-700;
+$color-text-danger: $color-red-700;
+$color-text-negative: $color-white;
+
+// $color-text-offset: $color-gray-600;
+$color-text-shadow: $color-gray-900;
+$color-tooltip-bg: $color-gray-900;
+$color-video-player-bg: $color-gray-900;

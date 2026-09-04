@@ -1,0 +1,20 @@
+@import "/src/UI/_CommonStyles/colors";
+
+.animated-brand-name {
+  position: relative;
+
+  > .added-letter {
+    color: $color-brand-name-offset;
+
+    position: absolute;
+    top: 0;
+
+    &.a {
+      left: 1.4em;
+    }
+
+    &.e {
+      left: 2.83em;
+    }
+  }
+}

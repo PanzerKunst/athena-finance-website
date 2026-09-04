@@ -1,0 +1,45 @@
+@import "/src/UI/_CommonStyles/mixins";
+
+.icon-with-dual-bg-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  background-color: $color-icon-bg-2;
+
+  width: 46px;
+  height: 46px;
+
+  @include vw(md) {
+    width: 56px;
+    height: 56px;
+  }
+
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+    background-color: $color-icon-bg-1;
+
+    width: 35px;
+    height: 35px;
+
+    @include vw(md) {
+      width: 40px;
+      height: 40px;
+    }
+
+    > svg {
+      color: $color-icon-brand;
+
+      @include img-size(16.75px);
+
+      @include vw(md) {
+        @include img-size(20px);
+      }
+    }
+  }
+}
