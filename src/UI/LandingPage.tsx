@@ -46,7 +46,7 @@ export function LandingPage() {
               <li>
                 <RustIcon width={28} height={28}/>
                 <h3>02 <span className="separator">/</span> High-performance engine</h3>
-                <p>Validated logic is translated into a proprietary Rust execution engine designed for low-latency trading.</p>
+                <p>Validated logic is translated into a proprietary execution engine designed for low-latency trading, written in Rust.</p>
               </li>
             </ul>
           </div>

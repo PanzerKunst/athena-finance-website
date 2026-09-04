@@ -21,7 +21,7 @@ const sectionLinks: SectionLink[] = [
 
 export function AppHeader() {
   const [isHidden, setIsHidden] = useState(false)
-  const [isDrawerOpen, { open: openDrawer, close: closeDrawer }] = useDisclosure(false)
+  const [isDrawerOpen, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false)
 
   // A ref rather than a module-level variable, so the value cannot outlive the component
   const lastScrollYRef = useRef(window.scrollY)
@@ -55,7 +55,7 @@ export function AppHeader() {
 
           <Burger
             opened={isDrawerOpen}
-            onClick={openDrawer}
+            onClick={toggleDrawer}
             size="sm"
             aria-label="Open the navigation menu"
           />
