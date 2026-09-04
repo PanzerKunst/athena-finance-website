@@ -1,3 +1,5 @@
+import AthenaIcon from "./svg/athena.svg?react"
+
 import "./AppFooter.scss"
 
 export function AppFooter() {
@@ -5,8 +7,10 @@ export function AppFooter() {
     <footer className="app-footer">
       <div className="container">
         <div>
-          <span className="brand">Athena Finance</span>
-          <a href="https://athenafinance.tech" className="underlined-on-hover">athenafinance.tech</a>
+          <span className="brand">
+            <AthenaIcon aria-hidden/>
+            Athena Finance
+          </span>
         </div>
 
         <div>

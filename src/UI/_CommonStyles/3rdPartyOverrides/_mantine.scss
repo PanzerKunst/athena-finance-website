@@ -1,8 +1,8 @@
 @use "UI/_CommonStyles" as *;
 
-// `_colors.scss` and `_numbers.scss` stay the single source of truth: this file is the only
-// place where those SCSS variables are handed over to Mantine, which is why `<MantineProvider>`
-// is given no `theme` of its own.
+// `_colors.scss`, `_fonts.scss` and `_numbers.scss` stay the single source of truth: this file
+// is the only place where those SCSS variables are handed over to Mantine, which is why
+// `<MantineProvider>` is given no `theme` of its own.
 :root {
   --mantine-font-family: #{$font-family-base};
   --mantine-color-body: #{$color-app-bg};

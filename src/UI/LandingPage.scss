@@ -41,7 +41,7 @@
     margin-bottom: 0;
   }
 
-  #how-we-work ul,
+  #process ul,
   #performance ul {
     display: grid;
     gap: 1.5em;
@@ -58,7 +58,7 @@
     }
   }
 
-  #how-we-work ul {
+  #process ul {
     @include vw(md) {
       grid-template-columns: 1fr 1fr;
     }

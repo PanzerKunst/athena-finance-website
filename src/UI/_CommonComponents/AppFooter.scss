@@ -12,6 +12,7 @@
     @include vw(md) {
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
     }
 
     > div {
@@ -32,6 +33,8 @@
   .brand {
     @include label-text;
     color: $color-heading;
+
+    @include brand-with-icon;
   }
 
   .company {

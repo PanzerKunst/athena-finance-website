@@ -1,6 +1,6 @@
 import { PulseIcon } from "@phosphor-icons/react"
 
-import RustIcon from "./_CommonComponents/rust.svg?react"
+import RustIcon from "./_CommonComponents/svg/rust.svg?react"
 
 import "./LandingPage.scss"
 
@@ -26,22 +26,22 @@ export function LandingPage() {
           <div className="container">
             <h1>Systematic trading for perpetual futures</h1>
             <p className="lead">
-              Athena Finance develops and operates automated, data-driven strategies across cryptocurrency derivatives markets. We focus on mid- and
+              Athena Finance develops and operates automated, data-driven strategies across leading cryptocurrency exchanges. We focus on mid- and
               high-frequency execution where research discipline and systems reliability are inseparable.
             </p>
           </div>
         </section>
 
-        <section id="how-we-work">
+        <section id="process">
           <div className="container">
-            <p className="label">01 <span className="separator">/</span> How we work</p>
+            <p className="label">Our process</p>
             <h2>Data-driven research / High-performance execution</h2>
 
             <ul className="styleless">
               <li>
                 <PulseIcon size={28}/>
                 <h3>01 <span className="separator">/</span> Strategy research</h3>
-                <p>Ideas are expressed in Pine Script, evaluated across market regimes, and refined through exhaustive TradingView backtesting.</p>
+                <p>Ideas are expressed in Pine Script, evaluated across market regimes, and refined through exhaustive backtesting in TradingView.</p>
               </li>
               <li>
                 <RustIcon width={28} height={28}/>
@@ -54,7 +54,7 @@ export function LandingPage() {
 
         <section id="performance">
           <div className="container">
-            <p className="label">02 <span className="separator">/</span> Performance</p>
+            <p className="label">Performance</p>
             <h2>Operating results across recent periods</h2>
             <p className="muted">
               Results are shown from the current account record as of 31 August 2026. Historical performance is not indicative of future results.
@@ -65,7 +65,7 @@ export function LandingPage() {
                 <li key={period}>
                   <span className="label">{period}</span>
                   <span className="net-result">{netResult}</span>
-                  <span className="trading-volume">Trading volume <span className="separator">/</span> {tradingVolume}</span>
+                  <span className="trading-volume">Trading volume: {tradingVolume}</span>
                 </li>
               ))}
             </ul>

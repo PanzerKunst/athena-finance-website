@@ -15,12 +15,16 @@ Following a Pull Request implementation, run the "lint" script declared in packa
 
 # The task to work on
 
-## Step 1
+## Step 1 (done)
 
 `AppHeader.tsx:59` — `<Burger opened={isDrawerOpen} onClick={openDrawer}>` animates to the "close" state but can only ever open. Harmless in practice (the Drawer's overlay covers it), but `toggle` would match what the icon claims.
 
-<!--
-I've added `public/images/athena.svg`. Can you use that as the site's favicon.
+## Step 2 (done)
 
-On top of that, if you can add it as prefix to "Athena Finance" located in the header and footer. For those, the icon's colour used should ideally be `$color-icon`
--->
+I've added `public/images/favicon.png`. Can you use that as the site's favicon.
+
+I've added `src\UI\_CommonComponents\svg\athena.svg`. I want that SVG to be used as prefix to "Athena Finance" located in the site's header and footer. For those, the icon's colour used should be set to `$color-icon` in SCSS.
+
+## Step 3 (done)
+
+`_numbers.scss` contains `$font-family-base: "Inter", sans-serif;`. But that is not a number. Is there a better place to declare it?
