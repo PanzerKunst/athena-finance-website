@@ -1,4 +1,6 @@
-import { IconActivity, IconBrandRust } from "@tabler/icons-react"
+import { PulseIcon } from "@phosphor-icons/react"
+
+import RustIcon from "./_CommonComponents/rust.svg?react"
 
 import "./LandingPage.scss"
 
@@ -36,13 +38,13 @@ export function LandingPage() {
             <h2>Research first. Execution engineered.</h2>
 
             <ul className="styleless">
-              <li key="01">
-                <IconActivity size={28} stroke={1.5}/>
+              <li>
+                <PulseIcon size={28}/>
                 <h3>01 <span className="separator">/</span> Strategy research</h3>
                 <p>Ideas are expressed in Pine Script, evaluated across market regimes, and refined through exhaustive TradingView backtesting.</p>
               </li>
-              <li key="02">
-                <IconBrandRust size={28} stroke={1.5}/>
+              <li>
+                <RustIcon width={28} height={28}/>
                 <h3>02 <span className="separator">/</span> Low-latency engine</h3>
                 <p>Validated logic is translated into a purpose-built Rust execution engine designed for deterministic decisions and low-latency
                   order handling.</p>
