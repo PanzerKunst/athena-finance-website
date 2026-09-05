@@ -2,7 +2,7 @@
 
 .app-footer {
   > .container {
-    border-top: 1px solid $color-border;
+    border-top: $border-width-xs solid $color-border;
     padding-block: $section-block-padding;
 
     display: flex;

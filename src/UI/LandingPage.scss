@@ -9,9 +9,8 @@
     }
   }
 
-  // The mockup separates every section with a hairline spanning the content column
-  > section:not(:first-of-type) > .container {
-    border-top: 1px solid $color-border;
+  > section:not(:last-of-type) > .container {
+    border-bottom: $border-width-xs solid $color-border;
   }
 
   h1,
@@ -52,7 +51,7 @@
       flex-direction: column;
 
       background-color: $color-offset-bg;
-      border: 1px solid $color-border;
+      border: $border-width-xs solid $color-border;
       border-radius: $border-radius-lg;
       padding: 1.75em 1.5em;
     }
