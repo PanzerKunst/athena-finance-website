@@ -9,7 +9,7 @@
 
     height: $header-height;
     background-color: $color-header-bg;
-    border-bottom: $header-border-width solid $color-border;
+    border-bottom: $border-width-xs solid $color-border;
 
     transition: transform #{$animation-duration-sm}s ease;
 
@@ -29,6 +29,8 @@
     .brand {
       @include label-text;
       color: $color-heading;
+
+      @include brand-with-icon;
     }
 
     nav {
@@ -56,12 +58,18 @@
   }
 }
 
-.app-header-drawer nav {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5em;
+.app-header-drawer {
+  .mantine-Drawer-title {
+    @include brand-with-icon;
+  }
 
-  > a {
-    @include label-text;
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    > a {
+      @include label-text;
+    }
   }
 }

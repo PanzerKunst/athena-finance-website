@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import checker from "vite-plugin-checker"
+import svgr from "vite-plugin-svgr"
 
 const lintCommand = "eslint . --report-unused-disable-directives --max-warnings 0"
 
@@ -11,6 +12,7 @@ const lintCommand = "eslint . --report-unused-disable-directives --max-warnings 
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
+    svgr(),
     mode === "development" && checker({
       typescript: true,
       eslint: { lintCommand, useFlatConfig: true }

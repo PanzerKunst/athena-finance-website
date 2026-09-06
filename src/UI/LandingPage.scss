@@ -9,9 +9,8 @@
     }
   }
 
-  // The mockup separates every section with a hairline spanning the content column
-  > section:not(:first-of-type) > .container {
-    border-top: 1px solid $color-border;
+  > section:not(:last-of-type) > .container {
+    border-bottom: $border-width-xs solid $color-border;
   }
 
   h1,
@@ -36,17 +35,12 @@
     margin-inline: 0.25em;
   }
 
-  .muted {
-    max-width: 34em;
-    margin-bottom: 0;
-  }
-
   #hero > p {
     max-width: 44em;
     margin-bottom: 0;
   }
 
-  #how-we-work ul,
+  #process ul,
   #performance ul {
     display: grid;
     gap: 1.5em;
@@ -57,15 +51,15 @@
       flex-direction: column;
 
       background-color: $color-offset-bg;
-      border: 1px solid $color-border;
+      border: $border-width-xs solid $color-border;
       border-radius: $border-radius-lg;
       padding: 1.75em 1.5em;
     }
   }
 
-  #how-we-work ul {
+  #process ul {
     @include vw(md) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
     }
 
     > li {

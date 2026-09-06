@@ -4,6 +4,8 @@ import classNames from "classnames"
 import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router"
 
+import AthenaIcon from "../svg/athena.svg?react"
+
 import "./AppHeader.scss"
 
 // Above the fold the header always stays visible: the top of the page is never obscured
@@ -15,13 +17,13 @@ type SectionLink = {
 }
 
 const sectionLinks: SectionLink[] = [
-  { label: "How we work", href: "#how-we-work" },
+  { label: "Our process", href: "#process" },
   { label: "Performance", href: "#performance" }
 ]
 
 export function AppHeader() {
   const [isHidden, setIsHidden] = useState(false)
-  const [isDrawerOpen, { open: openDrawer, close: closeDrawer }] = useDisclosure(false)
+  const [isDrawerOpen, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false)
 
   // A ref rather than a module-level variable, so the value cannot outlive the component
   const lastScrollYRef = useRef(window.scrollY)
@@ -45,7 +47,10 @@ export function AppHeader() {
     <div className="app-header-wrapper">
       <header className={classNames({ hidden: isHidden })}>
         <div className="container">
-          <Link to="/" className="brand">Athena Finance</Link>
+          <Link to="/" className="brand">
+            <AthenaIcon aria-hidden/>
+            Athena Finance
+          </Link>
 
           <nav>
             {sectionLinks.map(sectionLink => (
@@ -53,9 +58,13 @@ export function AppHeader() {
             ))}
           </nav>
 
+          {/*
+            The label stays "Open" in both states on purpose: the Drawer's overlay covers the
+            Burger as soon as it opens, so the only action ever offered to the user is "open".
+          */}
           <Burger
             opened={isDrawerOpen}
-            onClick={openDrawer}
+            onClick={toggleDrawer}
             size="sm"
             aria-label="Open the navigation menu"
           />
@@ -67,7 +76,7 @@ export function AppHeader() {
         onClose={closeDrawer}
         position="right"
         size="80%"
-        title="Athena Finance"
+        title={<><AthenaIcon aria-hidden/>Athena Finance</>}
         classNames={{ root: "app-header-drawer" }}
       >
         <nav>

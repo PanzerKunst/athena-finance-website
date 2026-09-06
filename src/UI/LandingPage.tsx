@@ -1,4 +1,6 @@
-import { IconActivity, IconBrandRust } from "@tabler/icons-react"
+import { PulseIcon } from "@phosphor-icons/react"
+
+import RustIcon from "./_CommonComponents/svg/rust.svg?react"
 
 import "./LandingPage.scss"
 
@@ -24,28 +26,27 @@ export function LandingPage() {
           <div className="container">
             <h1>Systematic trading for perpetual futures</h1>
             <p className="lead">
-              Athena Finance develops and operates automated, data-driven strategies across cryptocurrency derivatives markets. We focus on mid- and
+              Athena Finance develops and operates automated, data-driven strategies across leading cryptocurrency exchanges. We focus on mid- and
               high-frequency execution where research discipline and systems reliability are inseparable.
             </p>
           </div>
         </section>
 
-        <section id="how-we-work">
+        <section id="process">
           <div className="container">
-            <p className="label">01 <span className="separator">/</span> How we work</p>
-            <h2>Research first. Execution engineered.</h2>
+            <p className="label">Our process</p>
+            <h2>Data-driven research <span className="separator">/</span> High-performance execution</h2>
 
             <ul className="styleless">
-              <li key="01">
-                <IconActivity size={28} stroke={1.5}/>
+              <li>
+                <PulseIcon size={28} aria-hidden/>
                 <h3>01 <span className="separator">/</span> Strategy research</h3>
-                <p>Ideas are expressed in Pine Script, evaluated across market regimes, and refined through exhaustive TradingView backtesting.</p>
+                <p>Ideas are expressed in Pine Script, evaluated across market regimes, and refined through exhaustive backtesting in TradingView.</p>
               </li>
-              <li key="02">
-                <IconBrandRust size={28} stroke={1.5}/>
-                <h3>02 <span className="separator">/</span> Low-latency engine</h3>
-                <p>Validated logic is translated into a purpose-built Rust execution engine designed for deterministic decisions and low-latency
-                  order handling.</p>
+              <li>
+                <RustIcon width={28} height={28} aria-hidden/>
+                <h3>02 <span className="separator">/</span> High-performance engine</h3>
+                <p>Validated logic is translated into a proprietary execution engine designed for low-latency trading, written in Rust.</p>
               </li>
             </ul>
           </div>
@@ -53,8 +54,8 @@ export function LandingPage() {
 
         <section id="performance">
           <div className="container">
-            <p className="label">02 <span className="separator">/</span> Performance</p>
-            <h2>Operating results across recent periods.</h2>
+            <p className="label">Performance</p>
+            <h2>Operating results across recent periods</h2>
             <p className="muted">
               Results are shown from the current account record as of 31 August 2026. Historical performance is not indicative of future results.
             </p>
@@ -64,7 +65,7 @@ export function LandingPage() {
                 <li key={period}>
                   <span className="label">{period}</span>
                   <span className="net-result">{netResult}</span>
-                  <span className="trading-volume">Trading volume <span className="separator">/</span> {tradingVolume}</span>
+                  <span className="trading-volume">Trading volume: {tradingVolume}</span>
                 </li>
               ))}
             </ul>

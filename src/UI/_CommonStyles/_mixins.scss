@@ -1,5 +1,6 @@
 @use "colors" as *;
 @use "numbers" as *;
+@use "fonts" as *;
 
 @mixin vw($size) {
   @if $size == xxl {
@@ -31,4 +32,18 @@
   font-weight: 600;
   letter-spacing: $letter-spacing-label;
   text-transform: uppercase;
+}
+
+// Lays out the Athena mark as a prefix to the "Athena Finance" wordmark
+@mixin brand-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+
+  > svg {
+    flex-shrink: 0;
+    width: 4em;
+    height: 4em;
+    color: $color-icon;
+  }
 }

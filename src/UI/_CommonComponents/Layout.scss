@@ -16,10 +16,5 @@
 
 .page {
   // The header is fixed, so the content has to clear it
-  padding-top: $header-height + $header-border-width;
-}
-
-// So anchored headings clear the fixed header
-section {
-  scroll-margin-top: $header-height + $header-border-width;
+  padding-top: $header-height;
 }
