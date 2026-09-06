@@ -35,16 +35,16 @@ export function LandingPage() {
         <section id="process">
           <div className="container">
             <p className="label">Our process</p>
-            <h2>Data-driven research / High-performance execution</h2>
+            <h2>Data-driven research <span className="separator">/</span> High-performance execution</h2>
 
             <ul className="styleless">
               <li>
-                <PulseIcon size={28}/>
+                <PulseIcon size={28} aria-hidden/>
                 <h3>01 <span className="separator">/</span> Strategy research</h3>
                 <p>Ideas are expressed in Pine Script, evaluated across market regimes, and refined through exhaustive backtesting in TradingView.</p>
               </li>
               <li>
-                <RustIcon width={28} height={28}/>
+                <RustIcon width={28} height={28} aria-hidden/>
                 <h3>02 <span className="separator">/</span> High-performance engine</h3>
                 <p>Validated logic is translated into a proprietary execution engine designed for low-latency trading, written in Rust.</p>
               </li>
