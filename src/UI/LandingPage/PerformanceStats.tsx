@@ -8,29 +8,13 @@ import styleExports from "../_CommonStyles/_exports.module.scss"
 
 import "./PerformanceStats.scss"
 
-// The generated points each hold the result of their own week or day, so the curve they are drawn
-// as is summed up here, restarting from 0 at the start of the window
-type ChartPoint = PnlPoint & {
-  cumulativePnl: number;
-}
-
 type PerformancePeriod = {
   key: string;
   tabLabel: string;
   chartDescription: string;
   pointNoun: string;
   volume: number;
-  chartPoints: ChartPoint[];
-}
-
-function toChartPoints(pnlPoints: PnlPoint[]): ChartPoint[] {
-  let cumulativePnl = 0
-
-  return pnlPoints.map(point => {
-    cumulativePnl += point.pnl
-
-    return { ...point, cumulativePnl }
-  })
+  chartPoints: PnlPoint[];
 }
 
 // The 6-month period comes first, so that it is the one shown by default
@@ -41,7 +25,7 @@ const performancePeriods: PerformancePeriod[] = [
     chartDescription: "Cumulative profit and loss, week by week, over the last 6 months",
     pointNoun: "week",
     volume: vol6months,
-    chartPoints: toChartPoints(pnlStats6months)
+    chartPoints: pnlStats6months
   },
   {
     key: "30-days",
@@ -49,7 +33,7 @@ const performancePeriods: PerformancePeriod[] = [
     chartDescription: "Cumulative profit and loss, day by day, over the last 30 days",
     pointNoun: "day",
     volume: vol30days,
-    chartPoints: toChartPoints(pnlStats30days)
+    chartPoints: pnlStats30days
   }
 ]
 
@@ -102,7 +86,7 @@ function netResultClassName(pnl: number): string {
 // props: nothing is passed while the pointer is away from the plot area
 type ChartTooltipProps = {
   active?: boolean;
-  payload?: { payload: ChartPoint }[];
+  payload?: { payload: PnlPoint }[];
 }
 
 // The point's own result is shown rather than the curve's height at that point: how a single week
@@ -127,7 +111,7 @@ function formatAxisPnl(value: number): string {
   return axisPnlFormatter.format(value)
 }
 
-function netResultOf(chartPoints: ChartPoint[]): number {
+function netResultOf(chartPoints: PnlPoint[]): number {
   return chartPoints.at(-1)?.cumulativePnl ?? 0
 }
 
