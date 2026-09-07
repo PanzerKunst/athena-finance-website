@@ -1,0 +1,130 @@
+@use "UI/_CommonStyles" as *;
+
+// The headline figure and the tooltip value both follow the sign of the number they show
+@mixin net-result-color {
+  color: $color-positive;
+
+  &.negative {
+    color: $color-negative;
+  }
+}
+
+.performance-stats {
+  margin-top: 3.5em;
+
+  > .period-tabs {
+    gap: 2em;
+    border-bottom: $border-width-xs solid $color-border;
+
+    // Mantine draws its tabs as bordered buttons: only the underline of the active one is kept
+    > .period-tab {
+      @include label-text;
+
+      background-color: transparent;
+      border: none;
+      border-bottom: $border-width-sm solid transparent;
+      border-radius: 0;
+      padding: 0 0 0.9em;
+
+      &:hover {
+        color: $color-heading;
+      }
+
+      &[data-active] {
+        color: $color-heading;
+        border-bottom-color: $color-heading;
+      }
+    }
+  }
+
+  > .period-panel {
+    margin-top: 1.5em;
+
+    background-color: $color-offset-bg;
+    border: $border-width-xs solid $color-border;
+    border-radius: $border-radius-lg;
+    padding: 1.75em 1.5em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.75em;
+
+    > .figures {
+      display: grid;
+      gap: 1.25em;
+
+      // Side by side only once both figures fit on one line
+      @include vw(md) {
+        grid-template-columns: 1fr auto;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6em;
+
+        > .label {
+          color: $color-label;
+        }
+
+        > .figure {
+          color: $color-heading;
+          font-size: $font-size-lg;
+          font-weight: 700;
+          letter-spacing: $letter-spacing-heading;
+        }
+
+        > .net-result {
+          @include net-result-color;
+        }
+      }
+
+      > div:last-child {
+        @include vw(md) {
+          text-align: right;
+        }
+      }
+    }
+
+    > .chart {
+      height: 180px;
+
+      @include vw(md) {
+        height: 280px;
+      }
+
+      .recharts-cartesian-axis-tick-value {
+        font-size: $font-size-label;
+      }
+
+      // Drawn in white so that the tooltip lifts off the panel it floats over
+      .chart-tooltip {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35em;
+
+        background-color: $color-app-bg;
+        border: $border-width-xs solid $color-border;
+        border-radius: $border-radius-md;
+        padding: 0.6em 0.8em;
+
+        > .label {
+          color: $color-label;
+        }
+
+        > .net-result {
+          @include net-result-color;
+
+          font-size: $font-size-xxs;
+          font-weight: 700;
+        }
+      }
+    }
+
+    > .caption {
+      color: $color-text-muted;
+      font-size: $font-size-xxs;
+      margin-bottom: 0;
+    }
+  }
+}

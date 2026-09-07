@@ -70,7 +70,7 @@ export default tseslint.config(
   },
 
   {
-    files: ["vite.config.ts"],
+    files: ["vite.config.ts", "src/Data/StatsGenerator.ts"],
     languageOptions: {
       globals: globals.node
     }

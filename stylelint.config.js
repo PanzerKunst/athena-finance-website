@@ -9,6 +9,14 @@ export default {
     "max-nesting-depth": 5,
     "no-descending-specificity": null,
     "selector-class-pattern": null,
+
+    // `:export` is a CSS Modules construct: the compiler turns it into a JS object rather than
+    // CSS, so Stylelint reads the selector as an unknown pseudo-class, and each exported variable
+    // as an unknown property. Both exemptions stay scoped to that block, so real typos elsewhere
+    // are still reported.
+    "property-no-unknown": [true, { ignoreSelectors: [":export"] }],
+    "selector-pseudo-class-no-unknown": [true, { ignorePseudoClasses: ["export"] }],
+
     "scss/dollar-variable-empty-line-before": null,
     "scss/function-no-unknown": null,
 

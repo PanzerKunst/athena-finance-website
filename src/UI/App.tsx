@@ -1,7 +1,7 @@
 import { MantineProvider } from "@mantine/core"
 import { createBrowserRouter, RouterProvider } from "react-router"
 
-import { LandingPage } from "./LandingPage.tsx"
+import { LandingPage } from "./LandingPage/LandingPage.tsx"
 import { Layout } from "./_CommonComponents/Layout.tsx"
 
 import "./App.scss"
