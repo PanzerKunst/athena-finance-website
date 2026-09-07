@@ -1,0 +1,12 @@
+@use "colors" as *;
+
+// Recharts paints SVG attributes rather than CSS classes, so the few colors it draws itself have
+// to reach it as JavaScript values. `_colors.scss` stays the single source of truth: this block is
+// the only place where those variables are handed over.
+:export {
+  colorChartCursor: $color-chart-cursor;
+  colorChartGrid: $color-chart-grid;
+  colorLabel: $color-label;
+  colorOffsetBg: $color-offset-bg;
+  colorPositive: $color-positive;
+}

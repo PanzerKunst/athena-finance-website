@@ -22,3 +22,9 @@
   @include label-text;
   color: $color-heading;
 }
+
+// Mantine paints the line under the tabs from `--tab-border-color`, a variable it scopes to the
+// color scheme -- so the override has to carry that same specificity to take over.
+[data-mantine-color-scheme] .mantine-Tabs-root {
+  --tab-border-color: #{$color-border};
+}

@@ -1,4 +1,5 @@
-// Base colors, sampled from `docs/Mockup.png`. Only used in this file.
+// Base colors, sampled from `docs/Mockup.png` -- the loss red aside, which the mockup has no
+// equivalent for. Only used in this file.
 $color-white: rgb(255 255 255); // #FFF
 $color-slate-50: rgb(247 249 251); // #F7F9FB
 $color-slate-200: rgb(223 229 235); // #DFE5EB
@@ -8,15 +9,8 @@ $color-slate-600: rgb(82 98 115); // #526273
 $color-slate-700: rgb(79 95 112); // #4F5F70
 $color-slate-900: rgb(16 24 32); // #101820
 $color-steel-600: rgb(37 79 124); // #254F7C
-$color-green-400: rgb(111 224 170); // #6FE0AA
-$color-green-700: rgb(15 138 84); // #0F8A54
-
-// The cumulative P&L bar ramp, left to right
-$color-teal-900: rgb(36 76 101); // #244C65
-$color-teal-800: rgb(40 86 109); // #28566D
-$color-teal-700: rgb(49 109 122); // #316D7A
-$color-teal-600: rgb(60 133 126); // #3C857E
-$color-teal-500: rgb(76 163 126); // #4CA37E
+$color-green-700: rgb(13 127 77); // #0D7F4D
+$color-red-700: rgb(188 63 54); // #BC3F36
 
 // Functional colors, to use in the rest of the app
 $color-app-bg: $color-white;
@@ -27,20 +21,13 @@ $color-heading: $color-slate-900;
 $color-icon: $color-steel-600;
 $color-label: $color-slate-600;
 $color-link: $color-slate-600;
+$color-negative: $color-red-700;
 $color-offset-bg: $color-slate-50;
 $color-positive: $color-green-700;
 $color-text: $color-slate-700;
 $color-text-muted: $color-slate-500;
 
-// The dark cumulative P&L panel
-$color-panel-bg: $color-slate-900;
-$color-panel-heading: $color-white;
-$color-panel-positive: $color-green-400;
-$color-panel-text: $color-slate-400;
-
-$color-chart-bar-1: $color-teal-900;
-$color-chart-bar-2: $color-teal-800;
-$color-chart-bar-3: $color-teal-700;
-$color-chart-bar-4: $color-teal-600;
-$color-chart-bar-5: $color-teal-500;
-$color-chart-bar-6: $color-green-400;
+// The P&L chart furniture. The cursor is drawn stronger than the grid: it follows the pointer,
+// where the grid only has to hint at the value.
+$color-chart-cursor: $color-slate-400;
+$color-chart-grid: $color-border;
