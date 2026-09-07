@@ -57,7 +57,7 @@ React components: let's write the statistics (the 2 tabbed panels) in its own co
 
 If Recharts needs to consume colour values, take inspiration from the system in `docs/antler-project-marketing/src/UI/_CommonStyles/_exports.module.scss`.
 
-## Step 2
+## Step 2 (done)
 
 I'd like the Statistics UI changed:
 - The graph line smoothed
@@ -72,3 +72,7 @@ Context clarifications:
 Changes to `StatsGenerator.ts`:
 - `pnl` will hold per-bucket value, not cumulative. I leave it up to you to decide to add a field for cumulative PnL, or to have it calculated at runtime.
 - The `pnl` field of `PnlPoint` should be integer, rounded to nearest integer.
+
+## Step 3
+
+An override of Mantine styling. Right now on the performance panel, the 2px line at the bottom of Mantine tabs acts as the panel's top border. But they are of different colour. I would like Mantine tabs to be overriden, app-wide, so that the bottom line takes colour `$color-border`. No change in the line's thickness.

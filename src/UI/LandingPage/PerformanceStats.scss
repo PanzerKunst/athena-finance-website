@@ -14,7 +14,6 @@
 
   > .period-tabs {
     gap: 2em;
-    border-bottom: $border-width-xs solid $color-border;
 
     // Mantine draws its tabs as bordered buttons: only the underline of the active one is kept
     > .period-tab {
@@ -38,11 +37,9 @@
   }
 
   > .period-panel {
-    margin-top: 1.5em;
-
     background-color: $color-offset-bg;
     border: $border-width-xs solid $color-border;
-    border-radius: $border-radius-lg;
+    border-top: none;
     padding: 1.75em 1.5em;
 
     display: flex;

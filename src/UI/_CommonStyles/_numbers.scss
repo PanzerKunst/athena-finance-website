@@ -41,7 +41,7 @@ $font-size-text-xs: 12;
 
 $font-size-xxl: variable-font($font-size-display-xxl, 32); // h1
 $font-size-xl: variable-font($font-size-display-xl, 28); // h2
-$font-size-lg: variable-font($font-size-display-lg, 26); // Stat figures
+$font-size-lg: variable-font($font-size-display-lg, 22); // Stat figures
 $font-size-md: variable-font($font-size-display-md, 18); // h3
 $font-size-sm: variable-font($font-size-text-xl, $font-size-text-lg); // Lead paragraphs
 $font-size-xs: variable-font($font-size-text-lg, $font-size-text-md); // Body copy

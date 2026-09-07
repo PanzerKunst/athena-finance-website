@@ -203,9 +203,7 @@ export function PerformanceStats() {
               </ResponsiveContainer>
             </div>
 
-            <p className="caption">
-              All figures in USD, net of trading and funding fees. Hover or tap the chart to read the result of a single {period.pointNoun}.
-            </p>
+            <p className="caption">All figures in USD, net of trading and funding fees.</p>
           </Tabs.Panel>
         )
       })}
