@@ -48,37 +48,37 @@
 
     > .figures {
       display: grid;
+      grid-template-columns: 1fr auto;
       gap: 1.25em;
-
-      // Side by side only once both figures fit on one line
-      @include vw(md) {
-        grid-template-columns: 1fr auto;
-      }
 
       > div {
         display: flex;
         flex-direction: column;
         gap: 0.6em;
 
+        &:last-child {
+          text-align: right;
+        }
+
         > .label {
           color: $color-label;
+          letter-spacing: 0;
         }
 
         > .figure {
           color: $color-heading;
-          font-size: $font-size-lg;
           font-weight: 700;
           letter-spacing: $letter-spacing-heading;
+
+          font-size: $font-size-md;
+
+          @include vw(md) {
+            font-size: $font-size-lg;
+          }
         }
 
         > .net-result {
           @include net-result-color;
-        }
-      }
-
-      > div:last-child {
-        @include vw(md) {
-          text-align: right;
         }
       }
     }

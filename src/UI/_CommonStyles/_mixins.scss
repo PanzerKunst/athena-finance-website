@@ -39,11 +39,15 @@
   display: flex;
   align-items: center;
   gap: 0.5em;
+  margin-left: -0.7em;
+
+  @include label-text;
+  color: $color-heading;
 
   > svg {
     flex-shrink: 0;
     width: 4em;
     height: 4em;
-    color: $color-icon;
+    color: $color-brand;
   }
 }

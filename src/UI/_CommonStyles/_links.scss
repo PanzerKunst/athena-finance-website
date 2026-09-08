@@ -4,8 +4,34 @@ a {
   color: $color-link;
   text-decoration: none;
 
-  &.underlined-on-hover:hover {
-    text-decoration: underline;
-    text-underline-offset: 0.25em;
+  // A rule sliding in or out from one side. Painted as a background gradient rather than with
+  // `text-decoration`, which offers no control over the width being animated.
+  &.underlined {
+    $thickness: max(5%, $border-width-sm);
+    $size-hidden: 0 $thickness;
+    $size-visible: 100% $thickness;
+
+    background-image: linear-gradient(to right, $color-gradient-start, $color-gradient-end);
+    background-repeat: no-repeat;
+
+    transition: background-size #{$animation-duration-sm}s ease;
+
+    &.appears {
+      background-position: left bottom;
+      background-size: $size-hidden;
+
+      &:hover {
+        background-size: $size-visible;
+      }
+    }
+
+    &.disappears {
+      background-position: right bottom;
+      background-size: $size-visible;
+
+      &:hover {
+        background-size: $size-hidden;
+      }
+    }
   }
 }

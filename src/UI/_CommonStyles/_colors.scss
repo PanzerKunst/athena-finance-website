@@ -1,5 +1,5 @@
-// Base colors, sampled from `docs/Mockup.png` -- the loss red aside, which the mockup has no
-// equivalent for. Only used in this file.
+// Base colors, sampled from `docs/Mockup.png` -- the loss red and the lighter steel aside, which
+// the mockup has no equivalent for. Only used in this file.
 $color-white: rgb(255 255 255); // #FFF
 $color-slate-50: rgb(247 249 251); // #F7F9FB
 $color-slate-200: rgb(223 229 235); // #DFE5EB
@@ -8,6 +8,7 @@ $color-slate-500: rgb(106 120 135); // #6A7887
 $color-slate-600: rgb(82 98 115); // #526273
 $color-slate-700: rgb(79 95 112); // #4F5F70
 $color-slate-900: rgb(16 24 32); // #101820
+$color-steel-400: rgb(123 168 216); // #7BA8D8
 $color-steel-600: rgb(37 79 124); // #254F7C
 $color-green-700: rgb(13 127 77); // #0D7F4D
 $color-red-700: rgb(188 63 54); // #BC3F36
@@ -15,19 +16,18 @@ $color-red-700: rgb(188 63 54); // #BC3F36
 // Functional colors, to use in the rest of the app
 $color-app-bg: $color-white;
 $color-border: $color-slate-200;
-$color-focus-ring: $color-steel-600;
+$color-brand: $color-steel-600;
+$color-gradient-start: $color-steel-600;
+$color-gradient-end: $color-steel-400;
 $color-header-bg: $color-app-bg;
 $color-heading: $color-slate-900;
-$color-icon: $color-steel-600;
-$color-label: $color-slate-600;
-$color-link: $color-slate-600;
 $color-negative: $color-red-700;
 $color-offset-bg: $color-slate-50;
 $color-positive: $color-green-700;
 $color-text: $color-slate-700;
 $color-text-muted: $color-slate-500;
+$color-label: $color-slate-500;
+$color-link: $color-slate-500;
 
-// The P&L chart furniture. The cursor is drawn stronger than the grid: it follows the pointer,
-// where the grid only has to hint at the value.
 $color-chart-cursor: $color-slate-400;
 $color-chart-grid: $color-border;

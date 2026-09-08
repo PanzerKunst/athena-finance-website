@@ -60,7 +60,8 @@
       padding: 1.75em 1.5em;
 
       > svg {
-        color: $color-icon;
+        color: $color-brand;
+        margin-left: -3px;
       }
 
       > p {
