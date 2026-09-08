@@ -19,11 +19,10 @@ export function LandingPage() {
       <main>
         <section id="hero">
           <div className="container">
-            <h1>Systematic trading for perpetual futures</h1>
+            <h1>Systematic liquidity for perpetual futures</h1>
             <p className="lead">
-              Athena Finance develops and operates automated, data-driven strategies across leading cryptocurrency exchanges. We focus on mid- and
-              high-frequency execution where research discipline and systems reliability are inseparable. By executing strictly via limit orders,
-              our strategies actively provide liquidity to the market.
+              Athena Finance develops and operates automated, data-driven strategies across leading cryptocurrency exchanges. By executing
+              strictly via limit orders, our strategies actively provide liquidity to the market.
             </p>
           </div>
         </section>
@@ -32,6 +31,7 @@ export function LandingPage() {
           <div className="container">
             <p className="label">Our process</p>
             <h2>Data-driven research <span className="separator">/</span> High-performance execution</h2>
+            <p className="lead">We focus on mid- and high-frequency trades where research discipline and systems reliability are inseparable.</p>
 
             <ul className="styleless">
               <li>

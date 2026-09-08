@@ -27,9 +27,6 @@
     }
 
     .brand {
-      @include label-text;
-      color: $color-heading;
-
       @include brand-with-icon;
     }
 
@@ -59,6 +56,10 @@
 }
 
 .app-header-drawer {
+  .mantine-Drawer-header {
+    padding-top: 0.3em;
+  }
+
   .mantine-Drawer-title {
     @include brand-with-icon;
   }

@@ -31,9 +31,6 @@
   }
 
   .brand {
-    @include label-text;
-    color: $color-heading;
-
     @include brand-with-icon;
   }
 
