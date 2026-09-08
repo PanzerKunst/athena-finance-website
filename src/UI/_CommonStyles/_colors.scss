@@ -15,19 +15,16 @@ $color-red-700: rgb(188 63 54); // #BC3F36
 // Functional colors, to use in the rest of the app
 $color-app-bg: $color-white;
 $color-border: $color-slate-200;
-$color-focus-ring: $color-steel-600;
+$color-brand: $color-steel-600;
 $color-header-bg: $color-app-bg;
 $color-heading: $color-slate-900;
-$color-icon: $color-steel-600;
-$color-label: $color-slate-600;
-$color-link: $color-slate-600;
 $color-negative: $color-red-700;
 $color-offset-bg: $color-slate-50;
 $color-positive: $color-green-700;
 $color-text: $color-slate-700;
 $color-text-muted: $color-slate-500;
+$color-label: $color-slate-500;
+$color-link: $color-slate-500;
 
-// The P&L chart furniture. The cursor is drawn stronger than the grid: it follows the pointer,
-// where the grid only has to hint at the value.
 $color-chart-cursor: $color-slate-400;
 $color-chart-grid: $color-border;
