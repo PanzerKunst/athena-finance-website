@@ -54,7 +54,7 @@ export function AppHeader() {
 
           <nav>
             {sectionLinks.map(sectionLink => (
-              <a key={sectionLink.href} href={sectionLink.href}>{sectionLink.label}</a>
+              <a key={sectionLink.href} href={sectionLink.href} className="underlined appears">{sectionLink.label}</a>
             ))}
           </nav>
 

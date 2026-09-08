@@ -40,10 +40,6 @@
 
       > a {
         @include label-text;
-
-        &:hover {
-          color: $color-heading;
-        }
       }
     }
 
