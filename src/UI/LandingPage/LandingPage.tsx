@@ -29,7 +29,6 @@ export function LandingPage() {
 
         <section id="process">
           <div className="container">
-            <p className="label">Our process</p>
             <h2>Data-driven research <span className="separator">/</span> High-performance execution</h2>
             <p className="lead">We focus on mid- and high-frequency trades where research discipline and systems reliability are inseparable.</p>
 
@@ -50,13 +49,11 @@ export function LandingPage() {
 
         <section id="results">
           <div className="container">
-            <p className="label">Results</p>
             <h2>Operating results across recent periods</h2>
             <p className="muted">
               Results are shown from the current account record as of {asOfFormatter.format(new Date(statsAsOf))}. Historical performance is not
               indicative of future results.
             </p>
-
             <PerformanceStats/>
           </div>
         </section>
