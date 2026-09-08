@@ -18,7 +18,7 @@ type SectionLink = {
 
 const sectionLinks: SectionLink[] = [
   { label: "Our process", href: "#process" },
-  { label: "Performance", href: "#performance" }
+  { label: "Results", href: "#results" }
 ]
 
 export function AppHeader() {

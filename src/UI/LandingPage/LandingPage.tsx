@@ -48,9 +48,9 @@ export function LandingPage() {
           </div>
         </section>
 
-        <section id="performance">
+        <section id="results">
           <div className="container">
-            <p className="label">Performance</p>
+            <p className="label">Results</p>
             <h2>Operating results across recent periods</h2>
             <p className="muted">
               Results are shown from the current account record as of {asOfFormatter.format(new Date(statsAsOf))}. Historical performance is not
