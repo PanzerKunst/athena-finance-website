@@ -56,7 +56,6 @@ export function LandingPage() {
               Results are shown from the current account record as of {asOfFormatter.format(new Date(statsAsOf))}. Historical performance is not
               indicative of future results.
             </p>
-
             <PerformanceStats/>
           </div>
         </section>
