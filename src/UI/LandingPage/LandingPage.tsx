@@ -21,7 +21,7 @@ export function LandingPage() {
           <div className="container">
             <h1>Systematic liquidity for perpetual futures</h1>
             <p className="lead">
-              Athena Finance develops and operates automated, data-driven strategies across leading cryptocurrency exchanges. By executing
+              Athena Finance develops and operates automated strategies across leading cryptocurrency exchanges. By executing
               strictly via limit orders, our strategies actively provide liquidity to the market.
             </p>
           </div>
@@ -42,7 +42,7 @@ export function LandingPage() {
               <li>
                 <RustIcon width={28} height={28} aria-hidden/>
                 <h3>02 <span className="separator">/</span> High-performance engine</h3>
-                <p>Validated logic is translated into a proprietary execution engine designed for low-latency trading, written in Rust.</p>
+                <p>Validated logic is translated into a proprietary execution engine designed for low-latency trading, built in Rust.</p>
               </li>
             </ul>
           </div>
