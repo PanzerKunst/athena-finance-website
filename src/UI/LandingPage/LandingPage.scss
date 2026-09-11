@@ -13,9 +13,10 @@
     border-bottom: $border-width-xs solid $color-border;
   }
 
-  // Wide enough for the mockup's single-line headline on a desktop viewport
-  h1 {
-    max-width: 20em;
+  h1,
+  h2,
+  p {
+    max-width: calc(($vw-md + $vw-lg) / 2); // Better readibility on large screens
   }
 
   h1 + p {
@@ -30,9 +31,12 @@
     margin-inline: 0.25em;
   }
 
-  #hero > p {
-    max-width: 44em;
-    margin-bottom: 0;
+  #hero > .container {
+    > h1,
+    > p {
+      text-align: center;
+      margin-inline: auto;
+    }
   }
 
   #process ul {
