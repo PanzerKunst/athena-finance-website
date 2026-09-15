@@ -26,10 +26,6 @@
       gap: 20px;
     }
 
-    .brand {
-      @include brand-with-icon;
-    }
-
     nav {
       display: none;
 
@@ -54,10 +50,6 @@
 .app-header-drawer {
   .mantine-Drawer-header {
     padding-top: 6px;
-  }
-
-  .mantine-Drawer-title {
-    @include brand-with-icon;
   }
 
   nav {

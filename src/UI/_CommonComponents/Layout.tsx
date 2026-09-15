@@ -1,7 +1,7 @@
 import { Outlet, ScrollRestoration } from "react-router"
 
 import { AppFooter } from "./AppFooter.tsx"
-import { AppHeader } from "./AppHeader/AppHeader.tsx"
+import { AppHeader } from "./AppHeader.tsx"
 
 import "./Layout.scss"
 
