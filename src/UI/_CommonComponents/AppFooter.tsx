@@ -1,4 +1,4 @@
-import {BrandAndName} from "./BrandAndName.tsx"
+import { BrandAndName } from "./BrandAndName.tsx"
 
 import "./AppFooter.scss"
 
