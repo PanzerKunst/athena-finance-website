@@ -1,4 +1,4 @@
-import AthenaIcon from "./svg/athena.svg?react"
+import { BrandAndName } from "./BrandAndName.tsx"
 
 import "./AppFooter.scss"
 
@@ -6,12 +6,7 @@ export function AppFooter() {
   return (
     <footer className="app-footer">
       <div className="container">
-        <div>
-          <span className="brand">
-            <AthenaIcon aria-hidden/>
-            Athena Finance
-          </span>
-        </div>
+        <BrandAndName />
 
         <div>
           <span className="company">8b Services AB</span>

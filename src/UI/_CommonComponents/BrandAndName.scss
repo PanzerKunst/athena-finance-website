@@ -1,0 +1,17 @@
+@use "UI/_CommonStyles" as *;
+
+.brand-and-name {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  margin-left: -0.7em;
+
+  @include label-text; // Makes sure both svg and span have their font size unrelated to the parent's
+  color: $color-brand;
+
+  > svg {
+    flex-shrink: 0;
+    width: 4em;
+    height: 4em;
+  }
+}

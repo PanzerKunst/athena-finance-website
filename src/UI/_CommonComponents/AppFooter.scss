@@ -15,10 +15,10 @@
       align-items: center;
     }
 
-    > div {
+    > div:last-child {
       display: flex;
       flex-direction: column;
-      gap: 0.75em;
+      gap: 0.3em;
 
       font-size: $font-size-xxs;
 
@@ -28,10 +28,6 @@
         }
       }
     }
-  }
-
-  .brand {
-    @include brand-with-icon;
   }
 
   .company {

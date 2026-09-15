@@ -4,7 +4,7 @@ import classNames from "classnames"
 import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router"
 
-import AthenaIcon from "../svg/athena.svg?react"
+import { BrandAndName } from "./BrandAndName.tsx"
 
 import "./AppHeader.scss"
 
@@ -47,10 +47,7 @@ export function AppHeader() {
     <div className="app-header-wrapper">
       <header className={classNames({ hidden: isHidden })}>
         <div className="container">
-          <Link to="/" className="brand">
-            <AthenaIcon aria-hidden/>
-            Athena Finance
-          </Link>
+          <Link to="/"><BrandAndName /></Link>
 
           <nav>
             {sectionLinks.map(sectionLink => (
@@ -76,7 +73,7 @@ export function AppHeader() {
         onClose={closeDrawer}
         position="right"
         size="80%"
-        title={<><AthenaIcon aria-hidden/>Athena Finance</>}
+        title={<BrandAndName />}
         classNames={{ root: "app-header-drawer" }}
       >
         <nav>
