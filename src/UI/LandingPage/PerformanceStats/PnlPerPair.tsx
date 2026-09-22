@@ -20,8 +20,8 @@ function barStyle(pnl: number, largestAbsolutePnl: number): CSSProperties {
   return { width: `${(Math.abs(pnl) / largestAbsolutePnl) * 100}%` }
 }
 
-// The bar only restates the amount printed next to it, hence `aria-hidden`: a screen reader is
-// read the pair and its result, and spared a decoration it cannot convey
+// The bar only restates the amount printed next to it, hence `aria-hidden`: a screen reader reads
+// out the pair and its result, and skips a decoration it cannot convey
 export function PnlPerPair({ pairPnls }: PnlPerPairProps) {
   const largestAbsolutePnl = largestAbsolutePnlOf(pairPnls)
 
