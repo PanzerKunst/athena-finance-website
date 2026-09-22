@@ -19,7 +19,7 @@
 
   > ul {
     display: grid;
-    gap: 0.9em;
+    gap: 0.5em;
 
     // Filled column by column, so that the ranking still reads straight down the first one
     @include vw(lg) {
