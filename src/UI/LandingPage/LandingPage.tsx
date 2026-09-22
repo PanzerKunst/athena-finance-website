@@ -1,6 +1,6 @@
 import { PulseIcon } from "@phosphor-icons/react"
 
-import { PerformanceStats } from "./PerformanceStats.tsx"
+import { PerformanceStats } from "./PerformanceStats/PerformanceStats.tsx"
 import { statsAsOf } from "../../Data/GeneratedStats.ts"
 import RustIcon from "../_CommonComponents/svg/rust.svg?react"
 

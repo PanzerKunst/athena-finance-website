@@ -26,6 +26,15 @@
   }
 }
 
+// Any figure that takes its color from the sign of the number it shows
+@mixin net-result-color {
+  color: $color-positive;
+
+  &.negative {
+    color: $color-negative;
+  }
+}
+
 @mixin label-text {
   color: $color-label;
   font-size: $font-size-label;

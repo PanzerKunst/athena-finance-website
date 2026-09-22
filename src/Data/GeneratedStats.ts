@@ -10,6 +10,13 @@ export type PnlPoint = {
   cumulativePnl: number;
 }
 
+// The net result of one trading pair over the whole window, in whole dollars. Each list below
+// holds the 10 largest by absolute value, ordered from the biggest profit to the biggest loss
+export type PairPnl = {
+  pair: string;
+  pnl: number;
+}
+
 // The last day covered by the source export
 export const statsAsOf = "2026-09-22"
 
@@ -45,6 +52,19 @@ export const pnlStats6months: PnlPoint[] = [
   { date: "2026-09-21", label: "21-22 sep", pnl: 4634, cumulativePnl: 29782 }
 ]
 
+export const pnlPerPair6months: PairPnl[] = [
+  { pair: "HYPEUSDT", pnl: 14054 },
+  { pair: "TAOUSDT", pnl: 9704 },
+  { pair: "NEARUSDT", pnl: 7395 },
+  { pair: "WLDUSDT", pnl: 2536 },
+  { pair: "PUMPFUNUSDT", pnl: 1862 },
+  { pair: "LITUSDT", pnl: 1532 },
+  { pair: "MONUSDT", pnl: 707 },
+  { pair: "TONUSDT", pnl: -529 },
+  { pair: "EDGEUSDT", pnl: -558 },
+  { pair: "XLMUSDT", pnl: -6496 }
+]
+
 export const vol30days = 16446843
 
 export const pnlStats30days: PnlPoint[] = [
@@ -78,4 +98,17 @@ export const pnlStats30days: PnlPoint[] = [
   { date: "2026-09-20", label: "20 sep", pnl: 126, cumulativePnl: 8805 },
   { date: "2026-09-21", label: "21 sep", pnl: 3663, cumulativePnl: 12468 },
   { date: "2026-09-22", label: "22 sep", pnl: 971, cumulativePnl: 13439 }
+]
+
+export const pnlPerPair30days: PairPnl[] = [
+  { pair: "NEARUSDT", pnl: 7492 },
+  { pair: "TAOUSDT", pnl: 7100 },
+  { pair: "WLDUSDT", pnl: 2191 },
+  { pair: "HYPEUSDT", pnl: 1403 },
+  { pair: "PUMPFUNUSDT", pnl: 648 },
+  { pair: "LSKUSDT", pnl: -198 },
+  { pair: "PENGUUSDT", pnl: -250 },
+  { pair: "ONDOUSDT", pnl: -354 },
+  { pair: "XLMUSDT", pnl: -2439 },
+  { pair: "LITUSDT", pnl: -2819 }
 ]

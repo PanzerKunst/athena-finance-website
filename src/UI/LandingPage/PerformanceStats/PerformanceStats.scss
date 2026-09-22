@@ -1,16 +1,11 @@
 @use "UI/_CommonStyles" as *;
 
-// The headline figure and the tooltip value both follow the sign of the number they show
-@mixin net-result-color {
-  color: $color-positive;
-
-  &.negative {
-    color: $color-negative;
-  }
-}
-
 .performance-stats {
   margin-top: 3.5em;
+
+  .label {
+    letter-spacing: 0;
+  }
 
   > .period-tabs {
     gap: 2em;
@@ -44,9 +39,9 @@
 
     display: flex;
     flex-direction: column;
-    gap: 1.75em;
+    gap: 4em;
 
-    > .figures {
+    .figures {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 1.25em;
@@ -57,11 +52,6 @@
 
         &:last-child {
           text-align: right;
-        }
-
-        > .label {
-          color: $color-label;
-          letter-spacing: 0;
         }
 
         > .figure {
@@ -82,7 +72,8 @@
       }
     }
 
-    > .chart {
+    .chart {
+      margin-top: 1.5em;
       height: 180px;
 
       @include vw(md) {
