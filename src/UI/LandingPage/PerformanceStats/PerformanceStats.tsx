@@ -3,8 +3,19 @@ import { useReducedMotion } from "@mantine/hooks"
 import classNames from "classnames"
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 
-import { type PnlPoint, pnlStats30days, pnlStats6months, vol30days, vol6months } from "../../Data/GeneratedStats.ts"
-import styleExports from "../_CommonStyles/_exports.module.scss"
+import { netResultClassName, pnlFormatter } from "./NetResult.ts"
+import { PnlPerPair } from "./PnlPerPair.tsx"
+import {
+  type PairPnl,
+  type PnlPoint,
+  pnlPerPair30days,
+  pnlPerPair6months,
+  pnlStats30days,
+  pnlStats6months,
+  vol30days,
+  vol6months
+} from "../../../Data/GeneratedStats.ts"
+import styleExports from "../../_CommonStyles/_exports.module.scss"
 
 import "./PerformanceStats.scss"
 
@@ -12,9 +23,9 @@ type PerformancePeriod = {
   key: string;
   tabLabel: string;
   chartDescription: string;
-  pointNoun: string;
   volume: number;
   chartPoints: PnlPoint[];
+  pairPnls: PairPnl[];
 }
 
 // The 6-month period comes first, so that it is the one shown by default
@@ -23,17 +34,17 @@ const performancePeriods: PerformancePeriod[] = [
     key: "6-months",
     tabLabel: "Last 6 months",
     chartDescription: "Cumulative profit and loss, week by week, over the last 6 months",
-    pointNoun: "week",
     volume: vol6months,
-    chartPoints: pnlStats6months
+    chartPoints: pnlStats6months,
+    pairPnls: pnlPerPair6months
   },
   {
     key: "30-days",
     tabLabel: "Last 30 days",
     chartDescription: "Cumulative profit and loss, day by day, over the last 30 days",
-    pointNoun: "day",
     volume: vol30days,
-    chartPoints: pnlStats30days
+    chartPoints: pnlStats30days,
+    pairPnls: pnlPerPair30days
   }
 ]
 
@@ -41,14 +52,6 @@ const volumeFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
   maximumFractionDigits: 0
-})
-
-// The generated P&L is rounded to whole dollars, so trailing cents would only be noise
-const pnlFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-  signDisplay: "always"
 })
 
 // "$24K" rather than "$24,000": the axis only has to give the reader an order of magnitude
@@ -75,11 +78,6 @@ const activeDot = {
   fill: styleExports.colorPositive,
   stroke: styleExports.colorOffsetBg,
   strokeWidth: 2
-}
-
-// A gain and a loss are told apart by their color as much as by their sign
-function netResultClassName(pnl: number): string {
-  return classNames("net-result", { negative: pnl < 0 })
 }
 
 // Recharts clones this element with the hovered, touched or arrowed-to point, hence the optional
@@ -138,54 +136,58 @@ export function PerformanceStats() {
 
         return (
           <Tabs.Panel key={period.key} value={period.key}>
-            <div className="figures">
-              <div>
-                <span className="label">Trading volume</span>
-                <span className="figure">{volumeFormatter.format(period.volume)}</span>
+            <div>
+              <div className="figures">
+                <div>
+                  <span className="label">Trading volume</span>
+                  <span className="figure">{volumeFormatter.format(period.volume)}</span>
+                </div>
+
+                <div>
+                  <span className="label">Cumulative P&L</span>
+                  <span className={classNames("figure", netResultClassName(netResult))}>{pnlFormatter.format(netResult)}</span>
+                </div>
               </div>
 
-              <div>
-                <span className="label">Cumulative P&L</span>
-                <span className={classNames("figure", netResultClassName(netResult))}>{pnlFormatter.format(netResult)}</span>
+              <div className="chart">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart
+                    data={period.chartPoints}
+                    margin={chartMargin}
+                    accessibilityLayer
+                    aria-label={period.chartDescription}
+                  >
+                    <CartesianGrid vertical={false} stroke={styleExports.colorChartGrid}/>
+                    <XAxis
+                      dataKey="label"
+                      tick={axisTick}
+                      tickLine={false}
+                      axisLine={false}
+                      minTickGap={32}
+                    />
+                    <YAxis
+                      tickFormatter={formatAxisPnl}
+                      tick={axisTick}
+                      tickLine={false}
+                      axisLine={false}
+                      width={56}
+                    />
+                    <Tooltip content={<ChartTooltip/>} cursor={chartCursor}/>
+                    <Line
+                      type="monotone"
+                      dataKey="cumulativePnl"
+                      stroke={styleExports.colorPositive}
+                      strokeWidth={2}
+                      dot={false}
+                      activeDot={activeDot}
+                      isAnimationActive={!prefersReducedMotion}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
               </div>
             </div>
 
-            <div className="chart">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart
-                  data={period.chartPoints}
-                  margin={chartMargin}
-                  accessibilityLayer
-                  aria-label={period.chartDescription}
-                >
-                  <CartesianGrid vertical={false} stroke={styleExports.colorChartGrid}/>
-                  <XAxis
-                    dataKey="label"
-                    tick={axisTick}
-                    tickLine={false}
-                    axisLine={false}
-                    minTickGap={32}
-                  />
-                  <YAxis
-                    tickFormatter={formatAxisPnl}
-                    tick={axisTick}
-                    tickLine={false}
-                    axisLine={false}
-                    width={56}
-                  />
-                  <Tooltip content={<ChartTooltip/>} cursor={chartCursor}/>
-                  <Line
-                    type="monotone"
-                    dataKey="cumulativePnl"
-                    stroke={styleExports.colorPositive}
-                    strokeWidth={2}
-                    dot={false}
-                    activeDot={activeDot}
-                    isAnimationActive={!prefersReducedMotion}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
+            <PnlPerPair pairPnls={period.pairPnls}/>
 
             <p className="caption">All figures in USD, net of trading and funding fees.</p>
           </Tabs.Panel>

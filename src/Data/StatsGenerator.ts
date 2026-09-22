@@ -11,6 +11,10 @@ const daysPerWeek = 7
 const shortPeriodDays = 30
 const longPeriodMonths = 6
 
+// How many pairs the P&L breakdown lists: enough to cover the book's movers, past which the
+// results trail off into a long tail of a few hundred dollars either way
+const topPairCount = 10
+
 // Bybit writes its timestamps as `HH:MM YYYY-MM-DD`, with no timezone offset
 const timestampPattern = /^(\d{2}):(\d{2}) (\d{4})-(\d{2})-(\d{2})$/
 
@@ -18,6 +22,7 @@ const timestampPattern = /^(\d{2}):(\d{2}) (\d{4})-(\d{2})-(\d{2})$/
 const monthFormatter = new Intl.DateTimeFormat("en-US", { month: "short", timeZone: "UTC" })
 
 type ClosedPosition = {
+  market: string;
   closedAt: number;
   pnl: number;
   volume: number;
@@ -29,8 +34,14 @@ type PnlBucket = {
   pnl: number;
 }
 
+type PairPnl = {
+  pair: string;
+  pnl: number;
+}
+
 type PeriodStats = {
   buckets: PnlBucket[];
+  pairPnls: PairPnl[];
   volume: number;
 }
 
@@ -131,6 +142,7 @@ function toClosedPositions(rows: string[][]): ClosedPosition[] {
     throw new Error("The CSV file is empty")
   }
 
+  const marketIndex = columnIndexOf(header, "Market")
   const quantityIndex = columnIndexOf(header, "Quantity")
   const entryPriceIndex = columnIndexOf(header, "avgEntryPrice")
   const exitPriceIndex = columnIndexOf(header, "avgExitPrice")
@@ -143,6 +155,8 @@ function toClosedPositions(rows: string[][]): ClosedPosition[] {
       const quantity = Number(fieldAt(row, quantityIndex))
 
       return {
+        market: fieldAt(row, marketIndex),
+
         // Both legs are attributed to the close: that is when the P&L is realised, and positions
         // are held for minutes rather than days
         closedAt: parseTimestamp(fieldAt(row, closeTimeIndex)),
@@ -185,6 +199,16 @@ function firstTradedDayFrom(positions: ClosedPosition[], windowStart: number): n
   return firstPosition ? Math.max(windowStart, startOfUtcDay(firstPosition.closedAt)) : windowStart
 }
 
+// The pairs are picked on the size of their result, sign aside -- a heavy loss is as much a part of
+// the period as a heavy profit -- then laid out from the biggest profit to the biggest loss
+function toTopPairPnls(pnlPerPair: Map<string, number>): PairPnl[] {
+  return [...pnlPerPair]
+    .sort(([, leftPnl], [, rightPnl]) => Math.abs(rightPnl) - Math.abs(leftPnl))
+    .slice(0, topPairCount)
+    .sort(([, leftPnl], [, rightPnl]) => rightPnl - leftPnl)
+    .map(([pair, pnl]) => ({ pair, pnl }))
+}
+
 // Each bucket carries the net result of its own week or day, and nothing earlier: the cumulative
 // curve is summed up as the points are written out, restarting from 0 at the start of the window
 function toPeriodStats(
@@ -194,6 +218,7 @@ function toPeriodStats(
   nextBucketStart: (timestamp: number) => number
 ): PeriodStats {
   const buckets: PnlBucket[] = []
+  const pnlPerPair = new Map<string, number>()
   let volume = 0
   let startedAt = firstTradedDayFrom(positions, windowStart)
 
@@ -202,12 +227,16 @@ function toPeriodStats(
     const bucketPositions = positions.filter(position => position.closedAt >= startedAt && position.closedAt < endedAt)
     const pnl = bucketPositions.reduce((total, position) => total + position.pnl, 0)
 
+    for (const position of bucketPositions) {
+      pnlPerPair.set(position.market, (pnlPerPair.get(position.market) ?? 0) + position.pnl)
+    }
+
     volume += bucketPositions.reduce((total, position) => total + position.volume, 0)
     buckets.push({ startedAt, endedAt, pnl })
     startedAt = endedAt
   }
 
-  return { buckets, volume }
+  return { buckets, pairPnls: toTopPairPnls(pnlPerPair), volume }
 }
 
 function formatDay(timestamp: number): string {
@@ -254,6 +283,14 @@ function toPnlPointLines(stats: PeriodStats): string[] {
   })
 }
 
+function toPairPnlLines(stats: PeriodStats): string[] {
+  return stats.pairPnls.map((pairPnl, index) => {
+    const separator = index < stats.pairPnls.length - 1 ? "," : ""
+
+    return `  { pair: "${pairPnl.pair}", pnl: ${Math.round(pairPnl.pnl)} }${separator}`
+  })
+}
+
 function toGeneratedFileContent(
   csvFileName: string,
   statsAsOf: number,
@@ -273,6 +310,13 @@ function toGeneratedFileContent(
     "  cumulativePnl: number;",
     "}",
     "",
+    "// The net result of one trading pair over the whole window, in whole dollars. Each list below",
+    "// holds the 10 largest by absolute value, ordered from the biggest profit to the biggest loss",
+    "export type PairPnl = {",
+    "  pair: string;",
+    "  pnl: number;",
+    "}",
+    "",
     "// The last day covered by the source export",
     `export const statsAsOf = "${toIsoDate(statsAsOf)}"`,
     "",
@@ -282,10 +326,18 @@ function toGeneratedFileContent(
     ...toPnlPointLines(longPeriodStats),
     "]",
     "",
+    "export const pnlPerPair6months: PairPnl[] = [",
+    ...toPairPnlLines(longPeriodStats),
+    "]",
+    "",
     `export const vol30days = ${Math.round(shortPeriodStats.volume)}`,
     "",
     "export const pnlStats30days: PnlPoint[] = [",
     ...toPnlPointLines(shortPeriodStats),
+    "]",
+    "",
+    "export const pnlPerPair30days: PairPnl[] = [",
+    ...toPairPnlLines(shortPeriodStats),
     "]",
     ""
   ].join("\n")

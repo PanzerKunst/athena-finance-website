@@ -1,11 +1,9 @@
 # The review comments
 
-In src/UI/LandingPage/PerformanceStats.tsx, about:
+In src/UI/LandingPage/PerformanceStats/PnlPerPair.tsx, about:
 ```
-  let cumulativePnl = 0
-
-  return pnlPoints.map(point => {
-    cumulativePnl += point.pnl
+// The bar only restates the amount printed next to it, hence `aria-hidden`: a screen reader is
+// read the pair and its result, and spared a decoration it cannot convey
 ```
 Comment:
-`point.pnl` has already been rounded per bucket by the generator, so summing those integers accumulates rounding error and can make both the cumulative chart and headline differ from the rounded net P&L of the underlying positions. Keep the rounded per-bucket value for the tooltip, but generate cumulative values (or a final total) from the unrounded bucket totals before rounding and render those instead.
+The accessibility comment is grammatically incorrect: “a screen reader is read” should say that the screen reader reads the content.
