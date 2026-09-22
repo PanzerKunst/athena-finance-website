@@ -15,6 +15,8 @@ Following a Pull Request implementation, run the "lint" script declared in packa
 
 # The task to work on
 
+## Step 1 (done)
+
 As part of the "Results" statistics, we want to add some details on the PnL for some coins. These details are for the selected period in the tab.
 
 We want to display the 10 coins which have the largest profit, or loss over the period, in absolute value. Ordered from biggest profit to biggest loss.
@@ -23,3 +25,7 @@ On a viewport width less than `$vw-lg`, all the list items should be in a single
 This new list should be displayed above `All figures in USD, net of trading and funding fees.`
 
 In a similar way as the graph curve is animated upon switching tab, the bars should have a "fill" animation.
+
+## Step 2
+
+In the "P&L per contract" panel, pairs are displayed. Since all of them have the "USDT" suffix, I'd like it to be omitted. In that case, let's rename the "P&L per contract" label to "P&L per coin".
