@@ -39,7 +39,11 @@
 
     display: flex;
     flex-direction: column;
-    gap: 4em;
+    gap: 2em;
+
+    @include vw(lg) {
+      gap: 4em;
+    }
 
     .figures {
       display: grid;
