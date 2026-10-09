@@ -1,7 +1,7 @@
 ---
 name: update-stats
-description: Regenerate the landing page's "Results" statistics (`src/Data/GeneratedStats.ts`) from the latest Bybit closed-positions CSV export in `src/Data/`. Use when the user has dropped a new Bybit export, or asks to update / refresh / regenerate the stats, results, P&L or performance figures.
-argument-hint: "[commit]"
+description: Regenerate the landing page's "Results" statistics (`src/Data/GeneratedStats.ts`) from the latest Bybit closed-positions CSV export in `src/Data/`.
+disable-model-invocation: true
 allowed-tools: Bash(npm run generate-stats), Bash(npx tsc -b), Bash(npx eslint *), Bash(git status *), Bash(git diff *), Bash(git ls-files *), Bash(git rm *), Bash(git add *), Bash(ls *)
 ---
 
@@ -90,16 +90,3 @@ Give the user a short before → after summary:
 - **Anomalies:** anything that looks off, such as a large swing in a single bucket or a new pair dominating.
 
 Format dollars like the site does: `$12,345`, with negatives as `-$1,234`.
-
-## 6. Commit (only if asked)
-
-Commit only when the skill was invoked with `commit` (`/update-stats commit`) or the user asks for it. Stage
-the export swap and the regenerated file together, so git records the CSV as a rename:
-
-```sh
-git add -A src/Data/
-git status --short
-```
-
-Check that only `src/Data/` files are staged. Then commit with the repository's usual message, `Updated stats`.
-Otherwise, leave the changes uncommitted and say they're ready to commit.
