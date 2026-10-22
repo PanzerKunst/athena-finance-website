@@ -189,7 +189,7 @@ export function PerformanceStats() {
 
             <PnlPerPair pairPnls={period.pairPnls}/>
 
-            <p className="caption">All figures in USD, net of trading and funding fees.</p>
+            <p className="caption">All figures in USDT, net of trading and funding fees.</p>
           </Tabs.Panel>
         )
       })}
