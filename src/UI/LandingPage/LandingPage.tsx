@@ -31,7 +31,7 @@ export function LandingPage() {
           <div className="container">
             <p className="label">Our process</p>
             <h2>Data-driven research <span className="separator">/</span> High-performance execution</h2>
-            <p className="lead">We focus on mid- and high-frequency trades where research discipline and systems reliability are inseparable.</p>
+            <p className="lead">We focus on mid-frequency trades where research discipline and systems reliability are inseparable.</p>
 
             <ul className="styleless">
               <li>
