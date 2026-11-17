@@ -19,7 +19,7 @@ export function LandingPage() {
       <main>
         <section id="hero">
           <div className="container">
-            <h1>Systematic liquidity for perpetual futures</h1>
+            <h1>Systematic trading on perpetual futures</h1>
             <p className="lead">
               Athena Finance develops and operates automated strategies across leading cryptocurrency exchanges. By executing
               strictly via limit orders, our strategies actively provide liquidity to the market.
